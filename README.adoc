@@ -9,8 +9,7 @@
 :uri-site-readme: {uri-group}/demo-site/blob/master/README.adoc
 :uri-opendevise: https://opendevise.com
 
-Component A is an example of a documentation component.
-It is used by the Antora Demo site.
+doc-linux.git is a documentation component for fundamental linux concepts and skills that are often needed for work in the det-lab.
 The playbook and instructions for the Demo site are located in the {uri-site-readme}[Demo site playbook project].
 
 == Resources
