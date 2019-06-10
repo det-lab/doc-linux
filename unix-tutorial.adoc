@@ -1,0 +1,221 @@
+:tip-caption: 💡
+:note-caption: 📝
+:caution-caption: ⚠️
+:warning-caption: 🔥
+:important-caption: ❗️
+
+
+= The Ultimate Guide to Using the Shell
+:toc: left
+:experimental:
+:commandkey: &#8984;
+:optionkey: &#8997;
+:shiftkey: &#x21e7;
+:imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
+:ext-relative: adoc
+
+
+
+*GOAL: Learn how to manage files and processes with the shell.*
+
+This will be accomplished by performing the following tasks:
+
+. Running a shell process in the terminal
+. Navigating the filesystem
+. Handling Files
+. Handling Processes
+
+== What is the Shell?
+
+Inspired by the original UNIX operating system, *the trademark feature of all UNIX-like operating systems is the shell*. Common Unix-like operating systems include macOS and any distribution of Linux. Check out this awesome video to learn more about the original UNIX shell: 
+
+video::tc4ROCJYbm0[youtube, width=600, height=400, align=center]
+
+
+=== Files and Processes
+
+Everything in a Unix-like operating system is a *file*. A speical type of files called *executable files* become *processes*. Processes occur anytime we run a program by executing a an *executable file*. 
+
+
+|===
+|*EXECUTABLE files (become processes)*|*NON EXECUTABLE files (rely on processes)*
+|
+
+type of file that runs a program when it's opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts
+
+common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, *commands*
+
+common file extensions: .APP .EXE .SRC .VB|
+
+type of file that relies on executable files to be of any use 
+
+common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files
+
+common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )
+|===
+
+== Running a shell process with the terminal
+*GOAL: Learn how to use the terminal to run commands in the shell.*
+
+We run shell commands to tell the computer what to do. But to write out the commands, we need to use a command-line interface called the terminal. 
+
+* *Exercises, resources and troubleshooting*: terminal, shell, and command-line basics
++
+Click link:running-a-shell-process-terminal.html[here]. 
+
+////
+ What's the difference between the terminal and the shell?
+* How do I open the terminal?
+* What are commands?
+* What is the command-line prompt?
+* How do I run commands?
+////
+
+
+* *Quick Reference:* run commands like a boss
++
+. kbd:[tab]: auto complete (commands, file names)
+. `$ history` or (up arrow key): reccall command history
+. kbd:[ control + u]: clear the command line
+. `$ clear` or kbd:[ control + L] clear the screen
+. kbd:[control + c]: kill a process/cancel input (begin a new command line)
+. kbd:[ control + z]: stop a process
+
+== Navigating the filesystem
+
+*GOAL: Learn how to navigate the filesystem using the shell.* 
+
+Everything stored on a computer's hard drive is a file (even DIRECTORIES [a.k.a. folders]). In Unix-like OSs, *filesystems* have a hierarchical structure analogous to an upside down tree. All files and directories within the filesystem,have have a direct path that leads back to the *root* *directory* (written as a slash /). Subtle differences exist depending on the OS, but they all have the same general structure.
+
+[.float-group]
+--
+[.left]
+.macOS filesystem architecture
+image::image-macOStree.png[120,180]
+
+[.left]
+.Linux distribution architecture
+image::image-linuxOStree.png[120,180]
+--
+
+
+
+=== Where am I? (listing things)
+
+* *Exercises, troubleshooting and resources*:
++
+Click link:listing-things.html[here].
+
+* *Quick Reference*: List things like a boss.
+
+* `pwd`: print current working directory
+* `ls`: list all the files
+* `ls -l`: list all the files, permissions and last edit time
+* `ls -1`: list all the files, one per line
+* `ls -a`: include hiddent files
+* `ls -F`: list file types
+
+=== moving around (changing directories)
+* *Exercises, troubleshooting, and resources*:
++
+Click link:going-places.html[here].
+
+* *Quick Reference*: Move around like a boss.
++
+NOTE: typing `cd` with no argument always returns you to your home directory. This is super helpful if you're lost in the filesystem. 
++
+* `cd _/my/desired/location_`: changes directories to desired location
+* `cd`: go to your home directory
+* `cd ~`: go to your home directory
+* `cd ..`: go up one directory
+* `cd ../..`: go up two directories
+
+=== reading things
+
+* `cat _file.txt_` print a file to the terminal
+* `more _file.txt_`: scroll through a file
+* `less _file.txt_`: scrosll through a file (going backwords allowed)
+* `head -n 7`: print the first 7 lines of a file
+* `tail -n 7`: print the last 7 lines of a file
+* `wc _file.txt_`: word cound
+* `wc -w _file.txt_`: figure out how many words
+* `wc -l _file.txt_`: figure out how many lines
+* `diff`
+
+
+=== searhing for things
+
+* `grep` (don't ask why it's called grep): filters for things that you print 
+* `find`: will search
+
+
+== Handling files
+
+*GOAL: Make changes to the filesystem using the shell.*
+
+=== Making things
+
+IMPORTANT: don't use special characters or spaces... EVER
+
+NOTE: acceptable characters: dash - underscore _ or forward slash _
+
+==== making files
+
+* `touch _file.txt_`: make a text file called file
+* `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`: make and/or edit a text file called file
+
+==== making directories
+
+* `mkdir _directory_`: make a directory 
+* `mkdir-p _directory1/directory2_`: make a directory (directory1) and a subdirectory (directory2)
+
+=== copying things
+
+* `cp _file.txt /directory/_`: copy a file to a location
+* `cp -r _directory1 /directory2/_`: make a copy a directory into another directory
+
+=== moving things
+
+* `mv _directory1/file /directory2/_`: move a file from one directory into another directory
+
+
+=== removing things
+
+CAUTION: proceed with care - you can really screw things up
+
+NOTE: files are backed up, but let's not go there
+
+* `rm _file_`: remove a file
+* `rmdir _directory_`: remove an (empty) directory
+* `rm -r _directory_`: remove a directory and everything within it
+
+=== permissions
+
+* changing groups
+* changing permissions
+* adding sticky bits
+
+
+== Handling Processes
+
+*GOAL: Manage processes using the shell.*
+
+* `jobs`: display status of current processes in shell
+* `bg`:  resume a stopped process in the background so you can enter more commands
+* `fg`: resume a stopped process by running in the foreground (can't enter more commands this way)
+* `kill`: kill a running or stopped process
+* `stop`: stop a running process
+
+
+---
+*Miscellaneous* 
+
+* `echo "_Hello World_"`: prints hello world to the terminal
+* `sed`: replaces things for you
+* `awk`: will let you print specific fields of data (columns)
+* `bc`: doing math is easier in bash scripts if you pipe it through bc
+* `cut`: tool for chopping up strings
+* `uniq`: gets rid of duplicate things
+* `sort`
+* `paste`
+* `clear`: clear screen

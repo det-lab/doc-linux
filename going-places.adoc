@@ -1,0 +1,104 @@
+= Moving around
+:toc: left
+
+== Commands and Concepts
+Commands: cd
+
+Concepts: changing directories, single-dot (.), double-dot (..), parent directory 
+
+== Exercise: changing directories
+
+. Run `*cd /*` to go to your root directory:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd /*
+----
++
+NOTE: Your current path is reflected in your prompt, for example: username@host:bin$
++
+. Run `*cd*` (by itself) to return to your home directory:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd*
+----
++
+NOTE: The home directory is represented in the prompt with a tilde (*~*). 
++
+. Run `*cd .*` and then `*cd ..*` (there should be a space between cd and the dot)
++
+[source,bash]
+[subs=+quotes]
+----
+$ cd . 
+$ cd ..
+----
++
+NOTE: When added to a command, single dot (*.*) means execute the command in the current working directory (you're still in the same directory).  Double-dot (*..*) means execute the command in a directory that's one level up in the directory filesystem (called the *parent directory*).
++
+. You should now be in the parent directory of your home directory. Recall that there's a directory called `mydir` in your home directory, try changing directories to `mydir` by running `*cd mydir*`:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd mydir*
+bash: cd: mydir: No such file or directory
+----
++
+. Instead, try running `*cd ~/mydir*`:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd ~/mydir/*
+----
++
+[NOTE] 
+====
+the reason why there is a forward slash at the end of `~/mydir/` is because:
+
+.. `mydir` is a directory
+.. when using auto-complete (tab key) the shell automatically attatches the slash at the end for directories
+====
++
+. Enter `*cd*` and press the tab key:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd my-dir0*
+----
++
+. The shell suggested `my-dir0` because there are two directories available directories to choose from: `mydir-01` and `mydir-02`, all that you would have to do is finish the command by typing `*1*` or `*2*`
+
+
+== Test yourself
+
+*Problems*:
+
+. Change directories from `mydir` to your root directory without using the forward slash
++
+. Change directories to `mydir02` from the home directory using the `~` symbol in the path
+
+*Answers:*
+. from `mydir` to root without forward slash: 
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd ../../..*
+----
+. from root to `mydir-02`
++
+[source,bash]
+[subs=+quotes]
+----
+$ *cd ~/mydir/mydir-02
+----
+
+== Common Errors
+
+== Additional Resources

@@ -1,0 +1,70 @@
+:tip-caption: 💡
+:note-caption: 📝
+:caution-caption: ⚠️
+:warning-caption: 🔥
+:important-caption: ❗️
+
+= Running a shell Process in the Terminal
+:toc: left
+:experimental:
+:commandkey: &#8984;
+:optionkey: &#8997;
+:shiftkey: &#x21e7;
+:imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
+
+
+== What's the difference between the terminal and the shell?
+
+If you're a bit confused about the difference between the shell and the terminal check out the video below (but don't worry, this confusion will fade away as you gain more experience with running commands). 
+
+
+video::Yt57-gg9jVg[youtube, width=600, height=400, align=center]
+
+== How do I open/quit the terminal?
+
+*Opening the Terminal*
+
+For macOS, do one of the following:
+
+
+. Spotlight Search:
++
+* Press kbd:[ {commandkey} + space] and type `terminal` in the Spotlight Search box. 
++
+. Finder:
++
+* open the /Applications/Utilities folder, then double-click Terminal.
++
+. Launchpad
++
+* Click the Launchpad icon in the Dock, type Terminal  in the search fields, then click Terminal.
+
+*Quitting the Terminal*
+
+
+For macOS: 
+
+. In the Menu Bar, click Terminal > Quit Terminal.
+
+== What are commands?
+
+* syntax (commands, options, arguments)
+
+== How do I run commands?
+
+* command line prompt
+
+== how to use the terminal (like a pro)
+
+
+The following video contains key information about shell features including:
+
+* auto-complete
+* history (arrow up)
+* keyboard shortcuts
+* wildcards
+* piping
+* case sensitivity
+
+.8 Shell Shortcuts Every User Should Know
+video::C-AQAJXdoS8[youtube,width=600,height=400,align=center]

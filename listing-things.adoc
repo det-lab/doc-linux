@@ -1,0 +1,167 @@
+:tip-caption: 💡
+:note-caption: 📝
+:caution-caption: ⚠️
+:warning-caption: 🔥
+:important-caption: ❗️
+
+= Where am I? (listing things)
+:toc: left
+:experimental:
+:commandkey: &#8984;
+:optionkey: &#8997;
+:shiftkey: &#x21e7;
+:imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
+
+
+== Commands and Concepts 
+
+Commands: pwd, ls
+
+Concepts: current working directory, absolute vs relative paths, listing files and directories, using flags and options
+
+
+== Exercise 1: Detemermine your location
+
+. *pwd* prints your current working directory. Enter `*pwd*` in the command-line and hit the return key to view the path of your home directory:
++
+[source,bash]
+[subs=+quotes]
+----
+$ *pwd*
+----
++
+. As an example, my input (command) and output (path) looks like this:
++
+[source,sh]
+[subs=+quotes]
+----
+Dylans-Macbook-Pro:~ eljefe$ *pwd*
+/Users/eljefe
+----
++
+. Where `/Users/eljefe` is the path of my home directory.  
++
+[NOTE] 
+====
+The path of your home directory depends on your username and your operating system. But generally, it should like this: 
+
+* macOS: `/Users/_username_`
+* Linux-based OS: `/home/_username_`
+====
+
+== Exercise 2: Listing files and directories 
+
+. *ls* lists the contents of your current working directory directory. In your home directory, run `*ls*` and `*ls -F*:
++
+NOTE: the minus sign (-) is called a flag. Flags are used to add options. Options alter the output of a command.  
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls*
+mydir
+$ *ls -F*
+mydir/
+----
++
+The output is different the second time. The files that contain a slash (*/*) at the end of their name are directories.
++
+. List the contents of another directory by specifying the path. Run `*ls -F mydir*`:
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls -F mydir*
+my-dir01/        my-dir02/
+----
++
+. There are two directories contained within `mydir/`:
+..  `my-dir01/` and 
+.. `mydir02/`. 
++
+. Let's inspect both of them:
++
+[TIP]
+.Features of the Shell
+====
+.. History: Press the up-arrow on your keyboard to recall previously entered commands. 
+.. Auto-complete: Press the tab key on your keyboard when entering text in the command line. If the shell recognizes the name of a command, directory, or file, it'll fill out the rest!
+====
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls mydir/my-dir01*
+$ *ls mydir/my-dir02*
+my_dir01/        my_dir02/
+---- 
++ 
+. Try running: 
++ 
+[source,sh]
+[subs=+quotes]
+----
+$ *cd my-dir02*
+bash: cd: my-dir02: No such file or directory
+---- 
++
+. `No such file or directory` is a common error. When you receive this error, ask yourself: 
+.. did I spell the file/directory name correctly?
+.. did I utilize the correct path?
++
+. 
+. So far all of the commands we have run are examples examples of *relative paths* (pathanmes that link us to our destination only from our current working directory). 
+
+== Exercise 3: Listing content in the root directory
+
+. *absolute paths* link us to our destination regardless of our current working directory. An example of this is the the path of the root directory. Run `*ls /*`:
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls -F /*
+----
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls -F*
+----
+. Look for a directory called `bin/` and list its content:
++
+[source,sh]
+[subs=+quotes]
+----
+$ *ls /bin*
+----
++
+. Do you see the file `ls*`? This is one of several locations where shell programs (commands) are stored. The asterick * means the files are *executable* (able to run in the command line). 
+
+== Test yourself
+
+*Problems*:
+
+. For listing the content of `mydir-02`
+.. what directory would we need to be in to run `*cd my-dir02*`?
+.. What is the absolute path of `my-dir02`?
+.. Why did the command `*cd mydir/mydir-02*` run even though we didn't specify an absolute path?
+. In your home and root directories, Run `*ls*` with the following options and determine the effect that they have on the output:
+.. `*ls -1*`
+.. `*ls -a*`
+
+*Answers*:
+
+. For listing the content of `mydir-02`
+.. directory: `mydir/` 
+.. absolute path: `/Users/_username_/mydir/mydir-02` where the first slash `/` is the root directory.
+.. the current working directory had the path name `/Users/_username_/mydir` which is linked to `mydir-02` (refer to ANSWER b.)
+. In your home and root directories, Run `*ls*` with the following options and determine the effect that they have on the output:
+.. list all the files, one per line
+.. list hidden files: those that begin with dot (.)
+
+CAUTION: hidden files shouldn't be messed with until you are more familiar with the command-line! 
+
+== Common Errors
+
+== Additional Resources
+
