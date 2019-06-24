@@ -61,7 +61,7 @@ We run shell commands to tell the computer what to do. But to write out the comm
 
 * *Exercises, resources and troubleshooting*: terminal, shell, and command-line basics
 +
-Click link:running-a-shell-process-terminal.html[here]. 
+xref:running-a-shell-process-terminal.adoc[here]. 
 
 ////
  What's the difference between the terminal and the shell?
