@@ -104,7 +104,7 @@ image::image-linuxOStree.png[120,180]
 
 * *Exercises, troubleshooting and resources*:
 +
-Click link:listing-things.html[here].
+Click xref:listing-things.adoc[here].
 
 * *Quick Reference*: List things like a boss.
 
@@ -118,7 +118,7 @@ Click link:listing-things.html[here].
 === Moving Around (Changing Directories)
 * *Exercises, troubleshooting, and resources*:
 +
-Click link:going-places.html[here].
+Click xref:going-places.adoc[here].
 
 * *Quick Reference*: Move around like a boss.
 +
