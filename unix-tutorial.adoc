@@ -6,7 +6,7 @@
 
 
 = The Ultimate Guide to Using the Shell
-:toc: left
+:toc: \\left\\
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -34,7 +34,7 @@ video::tc4ROCJYbm0[youtube, width=600, height=400, align=center]
 
 === Files and Processes
 
-Everything in a Unix-like operating system is a *file*. A speical type of files called *executable files* become *processes*. Processes occur anytime we run a program by executing a an *executable file*. 
+Everything in a Unix-like operating system is a *file*. A speical type of files called *executable files* become *processes*. Processes occur anytime we run a program by executing an *executable file*. 
 
 
 |===
@@ -74,7 +74,8 @@ Click link:running-a-shell-process-terminal.html[here].
 
 * *Quick Reference:* run commands like a boss
 +
-. kbd:[tab]: auto complete (commands, file names)
+. kbd:[tab]: auto complete (commands, file names).
+. Double-kbd:[tab]: list suggestions (commands, file names)
 . `$ history` or (up arrow key): reccall command history
 . kbd:[ control + u]: clear the command line
 . `$ clear` or kbd:[ control + L] clear the screen
@@ -100,7 +101,7 @@ image::image-linuxOStree.png[120,180]
 
 
 
-=== Where am I? (listing things)
+=== Where am I? (Listing Things)
 
 * *Exercises, troubleshooting and resources*:
 +
@@ -115,7 +116,7 @@ Click link:listing-things.html[here].
 * `ls -a`: include hiddent files
 * `ls -F`: list file types
 
-=== moving around (changing directories)
+=== Moving Around (Changing Directories)
 * *Exercises, troubleshooting, and resources*:
 +
 Click link:going-places.html[here].
@@ -130,7 +131,7 @@ NOTE: typing `cd` with no argument always returns you to your home directory. Th
 * `cd ..`: go up one directory
 * `cd ../..`: go up two directories
 
-=== reading things
+=== Reading Things
 
 * `cat _file.txt_` print a file to the terminal
 * `more _file.txt_`: scroll through a file
@@ -143,11 +144,11 @@ NOTE: typing `cd` with no argument always returns you to your home directory. Th
 * `diff`
 
 
-=== searhing for things
+=== Searhing for Things
 
 * `grep` (don't ask why it's called grep): filters for things that you print 
-* `find`: will search
-
+* `find`: will search for a specified file
+//* `locate?`//
 
 == Handling files
 
@@ -155,41 +156,41 @@ NOTE: typing `cd` with no argument always returns you to your home directory. Th
 
 === Making things
 
-IMPORTANT: don't use special characters or spaces... EVER
+IMPORTANT: Don't use special characters or spaces... EVER. If you do somehow end up with a filename with special characters or spaces, put it in single quotes when referencing it. (Example: 'filename.txt')
 
-NOTE: acceptable characters: dash - underscore _ or forward slash _
+NOTE: acceptable characters: dash - underscore _ or forward slash /
 
-==== making files
+==== Making Files
 
 * `touch _file.txt_`: make a text file called file
 * `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`: make and/or edit a text file called file
 
-==== making directories
+==== Making Directories
 
 * `mkdir _directory_`: make a directory 
 * `mkdir-p _directory1/directory2_`: make a directory (directory1) and a subdirectory (directory2)
 
-=== copying things
+=== Copying Things
 
 * `cp _file.txt /directory/_`: copy a file to a location
 * `cp -r _directory1 /directory2/_`: make a copy a directory into another directory
 
-=== moving things
+=== Moving Things
 
 * `mv _directory1/file /directory2/_`: move a file from one directory into another directory
 
 
 === removing things
 
-CAUTION: proceed with care - you can really screw things up
+CAUTION: Proceed with care - you can really screw things up
 
-NOTE: files are backed up, but let's not go there
+NOTE: Files are backed up, but let's not go there
 
 * `rm _file_`: remove a file
 * `rmdir _directory_`: remove an (empty) directory
 * `rm -r _directory_`: remove a directory and everything within it
 
-=== permissions
+=== Permissions
 
 * changing groups
 * changing permissions
@@ -200,22 +201,22 @@ NOTE: files are backed up, but let's not go there
 
 *GOAL: Manage processes using the shell.*
 
-* `jobs`: display status of current processes in shell
-* `bg`:  resume a stopped process in the background so you can enter more commands
-* `fg`: resume a stopped process by running in the foreground (can't enter more commands this way)
-* `kill`: kill a running or stopped process
-* `stop`: stop a running process
+* `jobs`: Display status of current processes in shell
+* `bg`:  Resume a stopped process in the background so you can enter more commands
+* `fg`: Resume a stopped process by running in the foreground (can't enter more commands this way)
+* `kill`: Kill a running or stopped process
+* `stop`: Stop a running process
 
 
 ---
 *Miscellaneous* 
 
-* `echo "_Hello World_"`: prints hello world to the terminal
-* `sed`: replaces things for you
-* `awk`: will let you print specific fields of data (columns)
-* `bc`: doing math is easier in bash scripts if you pipe it through bc
-* `cut`: tool for chopping up strings
-* `uniq`: gets rid of duplicate things
+* `echo "_Hello World_"`: Prints hello world to the terminal
+* `sed`: Replaces things for you
+* `awk`: Will let you print specific fields of data (columns)
+* `bc`: Doing math is easier in bash scripts if you pipe it through bc
+* `cut`: Tool for chopping up strings
+* `uniq`: Gets rid of duplicate things
 * `sort`
 * `paste`
-* `clear`: clear screen
+* `clear`: Clear screen

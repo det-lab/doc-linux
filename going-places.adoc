@@ -1,5 +1,5 @@
 = Moving around
-:toc: left
+:toc: \left
 
 == Commands and Concepts
 Commands: cd
@@ -58,7 +58,7 @@ $ *cd ~/mydir/*
 +
 [NOTE] 
 ====
-the reason why there is a forward slash at the end of `~/mydir/` is because:
+There is a forward slash at the end of `~/mydir/` because:
 
 .. `mydir` is a directory
 .. when using auto-complete (tab key) the shell automatically attatches the slash at the end for directories
@@ -79,12 +79,13 @@ $ *cd my-dir0*
 
 *Problems*:
 
-. Change directories from `mydir` to your root directory without using the forward slash
+. Change directories from `mydir` to your root directory without using `cd /`
 +
 . Change directories to `mydir02` from the home directory using the `~` symbol in the path
 
 *Answers:*
-. from `mydir` to root without forward slash: 
+
+. from `mydir` to root without forward slash:
 +
 [source,bash]
 [subs=+quotes]

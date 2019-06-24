@@ -5,7 +5,7 @@
 :important-caption: ❗️
 
 = Where am I? (listing things)
-:toc: left
+:toc: \\left\\
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -47,6 +47,7 @@ The path of your home directory depends on your username and your operating syst
 
 * macOS: `/Users/_username_`
 * Linux-based OS: `/home/_username_`
+* Windows: `C:\Users{backslash}__username__`
 ====
 
 == Exercise 2: Listing files and directories 
@@ -109,12 +110,12 @@ bash: cd: my-dir02: No such file or directory
 .. did I spell the file/directory name correctly?
 .. did I utilize the correct path?
 +
-. 
+{zwsp} +
 . So far all of the commands we have run are examples examples of *relative paths* (pathanmes that link us to our destination only from our current working directory). 
 
 == Exercise 3: Listing content in the root directory
 
-. *absolute paths* link us to our destination regardless of our current working directory. An example of this is the the path of the root directory. Run `*ls /*`:
+. *Absolute paths* link us to our destination regardless of our current working directory. An example of this is the the path of the root directory. Run `*ls /*`:
 +
 [source,sh]
 [subs=+quotes]
@@ -152,12 +153,12 @@ $ *ls /bin*
 *Answers*:
 
 . For listing the content of `mydir-02`
-.. directory: `mydir/` 
-.. absolute path: `/Users/_username_/mydir/mydir-02` where the first slash `/` is the root directory.
-.. the current working directory had the path name `/Users/_username_/mydir` which is linked to `mydir-02` (refer to ANSWER b.)
+.. Directory: `mydir/` 
+.. Absolute path: `/Users/_username_/mydir/mydir-02` where the first slash `/` is the root directory.
+.. The current working directory had the path name `/Users/_username_/mydir` which is linked to `mydir-02` (refer to ANSWER b.)
 . In your home and root directories, Run `*ls*` with the following options and determine the effect that they have on the output:
 .. list all the files, one per line
-.. list hidden files: those that begin with dot (.)
+.. `ls -a` List all files, including hidden files: those that begin with dot (.)
 
 CAUTION: hidden files shouldn't be messed with until you are more familiar with the command-line! 
 

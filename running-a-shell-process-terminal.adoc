@@ -4,8 +4,8 @@
 :warning-caption: 🔥
 :important-caption: ❗️
 
-= Running a shell Process in the Terminal
-:toc: left
+= Running a Shell Process in the Terminal
+:toc: \\left
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -39,6 +39,19 @@ For macOS, do one of the following:
 +
 * Click the Launchpad icon in the Dock, type Terminal  in the search fields, then click Terminal.
 
+
+For Windows, do one of the following: +
+
+. Start Menu Search (Windows 10):
++
+* Press kbd:[WIN] and type either `cmd` or `PowerShell`. Click Command Prompt or PowerShell.
+
+. Run Menu:
++
+* Press kbd:[WIN + R] to open the Run menu. Type `cmd` or `PowerShell` and hit enter.
+
+__(PowerShell is generally recommended over Command Prompt as both can run CMD commands, but PowerShell has access to more Unix-like commands. Please also note that Windows commands may differ from Unix-based commands. We recommend downloading the Ubuntu WSL, available for free in the Microsoft Store on Windows 10, to follow most tutorials.)__
+
 *Quitting the Terminal*
 
 
@@ -48,13 +61,34 @@ For macOS:
 
 == What are commands?
 
+*Commands* are shell executables that tell your computer to perform certain types of tasks. All commands can be run in the command line. Some examples of things that commands can do are creating or removing files, moving a directory, or running another executable. Other commands may download, compile, and install a program. Generally, commands won't be able to directly interact with a GUI (graphical user interface).
+
+
 * syntax (commands, options, arguments)
+
+In general, a command will have a syntax something like: +
+`command -arguments target`. +
+It is possible to use many terms at once:
+`sudo apt-get install -V -m --yes --no-download g++` +
+Or to have a very short, one-term command:
+`ls`.
+
 
 == How do I run commands?
 
+Once you are in the terminal, running commands is usually quite straightforward.
+Unlike trying to perform actions outside the terminal, such as downloading and running an installer or updating a program, there is very little overhead.
+
+In the command line, type your command and press enter, and it will try to run. +
+As an example, type `apt-get update` -- this command should update any applications that have been installed using `apt-get install`.
+
+Did you get a `Permission denied` message? Let's try again with a slight modification: `sudo apt-get update`. This gives the command elevated priveleges, letting it get around some of the permission errors you'll encounter. Make sure that you know what commands do before you run them with `sudo` -- these permissions are often restricted for a reason!
+
+If `sudo` isn't working for you, you'll need to be added to the sudo group on your computer.  If you're on Windows, the equivalent to using `sudo` is to run CMD or PowerShell as an administrator (right click and select `Run as Administrator`).
+
 * command line prompt
 
-== how to use the terminal (like a pro)
+== How to Use the Terminal (Like a Pro)
 
 
 The following video contains key information about shell features including:
