@@ -41,17 +41,17 @@ Everything in a Unix-like operating system is a *file*. A speical type of files 
 |*EXECUTABLE files (become processes)*|*NON EXECUTABLE files (rely on processes)*
 |
 
-type of file that runs a program when it's opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts
+Type of file that runs a program when it's opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts
 
-common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, *commands*
+Common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, *commands*
 
-common file extensions: .APP .EXE .SRC .VB|
+Common file extensions: .APP .EXE .SRC .VB|
 
-type of file that relies on executable files to be of any use 
+Type of file that relies on executable files to be of any use 
 
-common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files
+Common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files
 
-common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )
+Common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )
 |===
 
 == Running a shell process with the terminal
@@ -74,12 +74,11 @@ Click link:running-a-shell-process-terminal.html[here].
 
 * *Quick Reference:* run commands like a boss
 +
-. kbd:[tab]: auto complete (commands, file names).
-. Double-kbd:[tab]: list suggestions (commands, file names)
-. `$ history` or (up arrow key): reccall command history
-. kbd:[ control + u]: clear the command line
-. `$ clear` or kbd:[ control + L] clear the screen
-. kbd:[control + c]: kill a process/cancel input (begin a new command line)
+. kbd:[tab]: Auto-complete (commands, file names)
+. `$ history` or kbd:[&uarr;]: Recall command history
+. kbd:[ control + u]: Clear the command line
+. `$ clear` or kbd:[ control + L]  Clear the screen
+. kbd:[control + c]: Kill a process/cancel input (begin a new command line)
 . kbd:[ control + z]: stop a process
 
 == Navigating the filesystem
@@ -109,12 +108,12 @@ Click link:listing-things.html[here].
 
 * *Quick Reference*: List things like a boss.
 
-* `pwd`: print current working directory
-* `ls`: list all the files
-* `ls -l`: list all the files, permissions and last edit time
-* `ls -1`: list all the files, one per line
-* `ls -a`: include hiddent files
-* `ls -F`: list file types
+* `pwd`: Print current working directory
+* `ls`: List all the files
+* `ls -l`: List all the files, permissions and last edit time
+* `ls -1`: List all the files, one per line
+* `ls -a`: Include hiddent files
+* `ls -F`: List file types
 
 === Moving Around (Changing Directories)
 * *Exercises, troubleshooting, and resources*:
@@ -123,7 +122,8 @@ Click link:going-places.html[here].
 
 * *Quick Reference*: Move around like a boss.
 +
-NOTE: typing `cd` with no argument always returns you to your home directory. This is super helpful if you're lost in the filesystem. 
+NOTE: Typing `cd` with no argument always returns you to your home directory on Unix-like systems. This is super helpful if you're lost in the filesystem. +
+In Windows, you'll want to use `cd ~` instead.
 +
 * `cd _/my/desired/location_`: changes directories to desired location
 * `cd`: go to your home directory
@@ -133,14 +133,14 @@ NOTE: typing `cd` with no argument always returns you to your home directory. Th
 
 === Reading Things
 
-* `cat _file.txt_` print a file to the terminal
-* `more _file.txt_`: scroll through a file
-* `less _file.txt_`: scrosll through a file (going backwords allowed)
-* `head -n 7`: print the first 7 lines of a file
-* `tail -n 7`: print the last 7 lines of a file
-* `wc _file.txt_`: word cound
-* `wc -w _file.txt_`: figure out how many words
-* `wc -l _file.txt_`: figure out how many lines
+* `cat _file.txt_` Print a file to the terminal
+* `more _file.txt_`: Scroll through a file
+* `less _file.txt_`: Scrolls through a file (going backwords allowed)
+* `head -n 7`: Print the first 7 lines of a file
+* `tail -n 7`: Print the last 7 lines of a file
+* `wc _file.txt_`: Word count
+* `wc -w _file.txt_`: Figure out how many words
+* `wc -l _file.txt_`: Figure out how many lines
 * `diff`
 
 
@@ -156,24 +156,24 @@ NOTE: typing `cd` with no argument always returns you to your home directory. Th
 
 === Making things
 
-IMPORTANT: Don't use special characters or spaces... EVER. If you do somehow end up with a filename with special characters or spaces, put it in single quotes when referencing it. (Example: 'filename.txt')
+IMPORTANT: Don't use special characters or spaces... EVER. If you do somehow end up with a filename with special characters or spaces, put it in quotes or single quotes when referencing it. (Example: 'file name.txt')
 
 NOTE: acceptable characters: dash - underscore _ or forward slash /
 
 ==== Making Files
 
-* `touch _file.txt_`: make a text file called file
-* `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`: make and/or edit a text file called file
+* `touch _file.txt_`: Make a text file called file
+* `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`: Make and/or edit a text file called file
 
 ==== Making Directories
 
-* `mkdir _directory_`: make a directory 
-* `mkdir-p _directory1/directory2_`: make a directory (directory1) and a subdirectory (directory2)
+* `mkdir _directory_`: Make a directory 
+* `mkdir-p _directory1/directory2_`: Make a directory (directory1) and a subdirectory (directory2)
 
 === Copying Things
 
-* `cp _file.txt /directory/_`: copy a file to a location
-* `cp -r _directory1 /directory2/_`: make a copy a directory into another directory
+* `cp _file.txt /directory/_`: Copy a file to a location
+* `cp -r _directory1 /directory2/_`: Make a copy a directory into another directory
 
 === Moving Things
 
