@@ -6,7 +6,7 @@
 
 
 = The Ultimate Guide to Using the Shell
-:toc: \\left\\
+:toc: left
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
