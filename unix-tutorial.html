@@ -444,19 +444,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#_running_a_shell_process_with_the_terminal">Running a shell process with the terminal</a></li>
 <li><a href="#_navigating_the_filesystem">Navigating the filesystem</a>
 <ul class="sectlevel2">
-<li><a href="#_where_am_i_listing_things">Where am I? (listing things)</a></li>
-<li><a href="#_moving_around_changing_directories">moving around (changing directories)</a></li>
-<li><a href="#_reading_things">reading things</a></li>
-<li><a href="#_searhing_for_things">searhing for things</a></li>
+<li><a href="#_where_am_i_listing_things">Where am I? (Listing Things)</a></li>
+<li><a href="#_moving_around_changing_directories">Moving Around (Changing Directories)</a></li>
+<li><a href="#_reading_things">Reading Things</a></li>
+<li><a href="#_searhing_for_things">Searhing for Things</a></li>
 </ul>
 </li>
 <li><a href="#_handling_files">Handling files</a>
 <ul class="sectlevel2">
 <li><a href="#_making_things">Making things</a></li>
-<li><a href="#_copying_things">copying things</a></li>
-<li><a href="#_moving_things">moving things</a></li>
+<li><a href="#_copying_things">Copying Things</a></li>
+<li><a href="#_moving_things">Moving Things</a></li>
 <li><a href="#_removing_things">removing things</a></li>
-<li><a href="#_permissions">permissions</a></li>
+<li><a href="#_permissions">Permissions</a></li>
 </ul>
 </li>
 <li><a href="#_handling_processes">Handling Processes</a></li>
@@ -504,7 +504,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sect2">
 <h3 id="_files_and_processes">Files and Processes</h3>
 <div class="paragraph">
-<p>Everything in a Unix-like operating system is a <strong>file</strong>. A speical type of files called <strong>executable files</strong> become <strong>processes</strong>. Processes occur anytime we run a program by executing a an <strong>executable file</strong>.</p>
+<p>Everything in a Unix-like operating system is a <strong>file</strong>. A speical type of files called <strong>executable files</strong> become <strong>processes</strong>. Processes occur anytime we run a program by executing an <strong>executable file</strong>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
@@ -517,12 +517,12 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NON EXECUTABLE files (rely on processes)</strong></p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">type of file that runs a program when it&#8217;s opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts</p>
-<p class="tableblock">common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, <strong>commands</strong></p>
-<p class="tableblock">common file extensions: .APP .EXE .SRC .VB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">type of file that relies on executable files to be of any use</p>
-<p class="tableblock">common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files</p>
-<p class="tableblock">common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of file that runs a program when it&#8217;s opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts</p>
+<p class="tableblock">Common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, <strong>commands</strong></p>
+<p class="tableblock">Common file extensions: .APP .EXE .SRC .VB</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Type of file that relies on executable files to be of any use</p>
+<p class="tableblock">Common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files</p>
+<p class="tableblock">Common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )</p></td>
 </tr>
 </tbody>
 </table>
@@ -543,7 +543,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li>
 <p><strong>Exercises, resources and troubleshooting</strong>: terminal, shell, and command-line basics</p>
 <div class="paragraph">
-<p>Click <a href="running-a-shell-process-terminal.html">here</a>.</p>
+<p><a href="running-a-shell-process-terminal.html">here</a>.</p>
 </div>
 </li>
 </ul>
@@ -555,19 +555,19 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p><kbd>tab</kbd>: auto complete (commands, file names)</p>
+<p><kbd>tab</kbd>: Auto-complete (commands, file names)</p>
 </li>
 <li>
-<p><code>$ history</code> or (up arrow key): reccall command history</p>
+<p><code>$ history</code> or <kbd>&uarr;</kbd>: Recall command history</p>
 </li>
 <li>
-<p><span class="keyseq"><kbd>control</kbd>+<kbd>u</kbd></span>: clear the command line</p>
+<p><span class="keyseq"><kbd>control</kbd>+<kbd>u</kbd></span>: Clear the command line</p>
 </li>
 <li>
-<p><code>$ clear</code> or <span class="keyseq"><kbd>control</kbd>+<kbd>L</kbd></span> clear the screen</p>
+<p><code>$ clear</code> or <span class="keyseq"><kbd>control</kbd>+<kbd>L</kbd></span>  Clear the screen</p>
 </li>
 <li>
-<p><span class="keyseq"><kbd>control</kbd>+<kbd>c</kbd></span>: kill a process/cancel input (begin a new command line)</p>
+<p><span class="keyseq"><kbd>control</kbd>+<kbd>c</kbd></span>: Kill a process/cancel input (begin a new command line)</p>
 </li>
 <li>
 <p><span class="keyseq"><kbd>control</kbd>+<kbd>z</kbd></span>: stop a process</p>
@@ -605,7 +605,7 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </div>
 </div>
 <div class="sect2">
-<h3 id="_where_am_i_listing_things">Where am I? (listing things)</h3>
+<h3 id="_where_am_i_listing_things">Where am I? (Listing Things)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -618,28 +618,28 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <p><strong>Quick Reference</strong>: List things like a boss.</p>
 </li>
 <li>
-<p><code>pwd</code>: print current working directory</p>
+<p><code>pwd</code>: Print current working directory</p>
 </li>
 <li>
-<p><code>ls</code>: list all the files</p>
+<p><code>ls</code>: List all the files</p>
 </li>
 <li>
-<p><code>ls -l</code>: list all the files, permissions and last edit time</p>
+<p><code>ls -l</code>: List all the files, permissions and last edit time</p>
 </li>
 <li>
-<p><code>ls -1</code>: list all the files, one per line</p>
+<p><code>ls -1</code>: List all the files, one per line</p>
 </li>
 <li>
-<p><code>ls -a</code>: include hiddent files</p>
+<p><code>ls -a</code>: Include hiddent files</p>
 </li>
 <li>
-<p><code>ls -F</code>: list file types</p>
+<p><code>ls -F</code>: List file types</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_moving_around_changing_directories">moving around (changing directories)</h3>
+<h3 id="_moving_around_changing_directories">Moving Around (Changing Directories)</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -657,7 +657,8 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="title">📝</div>
 </td>
 <td class="content">
-typing <code>cd</code> with no argument always returns you to your home directory. This is super helpful if you&#8217;re lost in the filesystem.
+Typing <code>cd</code> with no argument always returns you to your home directory on Unix-like systems. This is super helpful if you&#8217;re lost in the filesystem.<br>
+In Windows, you&#8217;ll want to use <code>cd ~</code> instead.
 </td>
 </tr>
 </table>
@@ -682,32 +683,32 @@ typing <code>cd</code> with no argument always returns you to your home director
 </div>
 </div>
 <div class="sect2">
-<h3 id="_reading_things">reading things</h3>
+<h3 id="_reading_things">Reading Things</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cat <em>file.txt</em></code> print a file to the terminal</p>
+<p><code>cat <em>file.txt</em></code> Print a file to the terminal</p>
 </li>
 <li>
-<p><code>more <em>file.txt</em></code>: scroll through a file</p>
+<p><code>more <em>file.txt</em></code>: Scroll through a file</p>
 </li>
 <li>
-<p><code>less <em>file.txt</em></code>: scrosll through a file (going backwords allowed)</p>
+<p><code>less <em>file.txt</em></code>: Scrolls through a file (going backwords allowed)</p>
 </li>
 <li>
-<p><code>head -n 7</code>: print the first 7 lines of a file</p>
+<p><code>head -n 7</code>: Print the first 7 lines of a file</p>
 </li>
 <li>
-<p><code>tail -n 7</code>: print the last 7 lines of a file</p>
+<p><code>tail -n 7</code>: Print the last 7 lines of a file</p>
 </li>
 <li>
-<p><code>wc <em>file.txt</em></code>: word cound</p>
+<p><code>wc <em>file.txt</em></code>: Word count</p>
 </li>
 <li>
-<p><code>wc -w <em>file.txt</em></code>: figure out how many words</p>
+<p><code>wc -w <em>file.txt</em></code>: Figure out how many words</p>
 </li>
 <li>
-<p><code>wc -l <em>file.txt</em></code>: figure out how many lines</p>
+<p><code>wc -l <em>file.txt</em></code>: Figure out how many lines</p>
 </li>
 <li>
 <p><code>diff</code></p>
@@ -716,14 +717,14 @@ typing <code>cd</code> with no argument always returns you to your home director
 </div>
 </div>
 <div class="sect2">
-<h3 id="_searhing_for_things">searhing for things</h3>
+<h3 id="_searhing_for_things">Searhing for Things</h3>
 <div class="ulist">
 <ul>
 <li>
 <p><code>grep</code> (don&#8217;t ask why it&#8217;s called grep): filters for things that you print</p>
 </li>
 <li>
-<p><code>find</code>: will search</p>
+<p><code>find</code>: will search for a specified file</p>
 </li>
 </ul>
 </div>
@@ -745,7 +746,7 @@ typing <code>cd</code> with no argument always returns you to your home director
 <div class="title">❗️</div>
 </td>
 <td class="content">
-don&#8217;t use special characters or spaces&#8230;&#8203; EVER
+Don&#8217;t use special characters or spaces&#8230;&#8203; EVER. If you do somehow end up with a filename with special characters or spaces, put it in quotes or single quotes when referencing it. (Example: 'file name.txt')
 </td>
 </tr>
 </table>
@@ -757,53 +758,53 @@ don&#8217;t use special characters or spaces&#8230;&#8203; EVER
 <div class="title">📝</div>
 </td>
 <td class="content">
-acceptable characters: dash - underscore _ or forward slash _
+acceptable characters: dash - underscore _ or forward slash /
 </td>
 </tr>
 </table>
 </div>
 <div class="sect3">
-<h4 id="_making_files">making files</h4>
+<h4 id="_making_files">Making Files</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><code>touch <em>file.txt</em></code>: make a text file called file</p>
+<p><code>touch <em>file.txt</em></code>: Make a text file called file</p>
 </li>
 <li>
-<p><code>nano <em>file.txt</em></code> or <code>vim <em>file.txt</em></code> or <code>emacs <em>file.txt</em></code>: make and/or edit a text file called file</p>
+<p><code>nano <em>file.txt</em></code> or <code>vim <em>file.txt</em></code> or <code>emacs <em>file.txt</em></code>: Make and/or edit a text file called file</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect3">
-<h4 id="_making_directories">making directories</h4>
+<h4 id="_making_directories">Making Directories</h4>
 <div class="ulist">
 <ul>
 <li>
-<p><code>mkdir <em>directory</em></code>: make a directory</p>
+<p><code>mkdir <em>directory</em></code>: Make a directory</p>
 </li>
 <li>
-<p><code>mkdir-p <em>directory1/directory2</em></code>: make a directory (directory1) and a subdirectory (directory2)</p>
+<p><code>mkdir-p <em>directory1/directory2</em></code>: Make a directory (directory1) and a subdirectory (directory2)</p>
 </li>
 </ul>
 </div>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_copying_things">copying things</h3>
+<h3 id="_copying_things">Copying Things</h3>
 <div class="ulist">
 <ul>
 <li>
-<p><code>cp <em>file.txt /directory/</em></code>: copy a file to a location</p>
+<p><code>cp <em>file.txt /directory/</em></code>: Copy a file to a location</p>
 </li>
 <li>
-<p><code>cp -r <em>directory1 /directory2/</em></code>: make a copy a directory into another directory</p>
+<p><code>cp -r <em>directory1 /directory2/</em></code>: Make a copy a directory into another directory</p>
 </li>
 </ul>
 </div>
 </div>
 <div class="sect2">
-<h3 id="_moving_things">moving things</h3>
+<h3 id="_moving_things">Moving Things</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -821,7 +822,7 @@ acceptable characters: dash - underscore _ or forward slash _
 <div class="title">⚠️</div>
 </td>
 <td class="content">
-proceed with care - you can really screw things up
+Proceed with care - you can really screw things up
 </td>
 </tr>
 </table>
@@ -833,7 +834,7 @@ proceed with care - you can really screw things up
 <div class="title">📝</div>
 </td>
 <td class="content">
-files are backed up, but let&#8217;s not go there
+Files are backed up, but let&#8217;s not go there
 </td>
 </tr>
 </table>
@@ -853,7 +854,7 @@ files are backed up, but let&#8217;s not go there
 </div>
 </div>
 <div class="sect2">
-<h3 id="_permissions">permissions</h3>
+<h3 id="_permissions">Permissions</h3>
 <div class="ulist">
 <ul>
 <li>
@@ -879,19 +880,19 @@ files are backed up, but let&#8217;s not go there
 <div class="ulist">
 <ul>
 <li>
-<p><code>jobs</code>: display status of current processes in shell</p>
+<p><code>jobs</code>: Display status of current processes in shell</p>
 </li>
 <li>
-<p><code>bg</code>:  resume a stopped process in the background so you can enter more commands</p>
+<p><code>bg</code>:  Resume a stopped process in the background so you can enter more commands</p>
 </li>
 <li>
-<p><code>fg</code>: resume a stopped process by running in the foreground (can&#8217;t enter more commands this way)</p>
+<p><code>fg</code>: Resume a stopped process by running in the foreground (can&#8217;t enter more commands this way)</p>
 </li>
 <li>
-<p><code>kill</code>: kill a running or stopped process</p>
+<p><code>kill</code>: Kill a running or stopped process</p>
 </li>
 <li>
-<p><code>stop</code>: stop a running process</p>
+<p><code>stop</code>: Stop a running process</p>
 </li>
 </ul>
 </div>
@@ -902,22 +903,22 @@ files are backed up, but let&#8217;s not go there
 <div class="ulist">
 <ul>
 <li>
-<p><code>echo "<em>Hello World</em>"</code>: prints hello world to the terminal</p>
+<p><code>echo "<em>Hello World</em>"</code>: Prints hello world to the terminal</p>
 </li>
 <li>
-<p><code>sed</code>: replaces things for you</p>
+<p><code>sed</code>: Replaces things for you</p>
 </li>
 <li>
-<p><code>awk</code>: will let you print specific fields of data (columns)</p>
+<p><code>awk</code>: Will let you print specific fields of data (columns)</p>
 </li>
 <li>
-<p><code>bc</code>: doing math is easier in bash scripts if you pipe it through bc</p>
+<p><code>bc</code>: Doing math is easier in bash scripts if you pipe it through bc</p>
 </li>
 <li>
-<p><code>cut</code>: tool for chopping up strings</p>
+<p><code>cut</code>: Tool for chopping up strings</p>
 </li>
 <li>
-<p><code>uniq</code>: gets rid of duplicate things</p>
+<p><code>uniq</code>: Gets rid of duplicate things</p>
 </li>
 <li>
 <p><code>sort</code></p>
@@ -926,7 +927,7 @@ files are backed up, but let&#8217;s not go there
 <p><code>paste</code></p>
 </li>
 <li>
-<p><code>clear</code>: clear screen</p>
+<p><code>clear</code>: Clear screen</p>
 </li>
 </ul>
 </div>
@@ -935,7 +936,7 @@ files are backed up, but let&#8217;s not go there
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-10 17:20:43 -0600
+Last updated 2019-06-24 15:41:14 -0600
 </div>
 </div>
 </body>
