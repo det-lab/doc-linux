@@ -6,7 +6,7 @@
 
 
 = The Ultimate Guide to Using the Shell
-:toc: left
+:toc: \\left\\
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -112,7 +112,7 @@ Click xref:listing-things.adoc[here].
 * `ls`: List all the files
 * `ls -l`: List all the files, permissions and last edit time
 * `ls -1`: List all the files, one per line
-* `ls -a`: Include hiddent files
+* `ls -a`: Include hidden files
 * `ls -F`: List file types
 
 === Moving Around (Changing Directories)
@@ -134,21 +134,20 @@ In Windows, you'll want to use `cd ~` instead.
 === Reading Things
 
 * `cat _file.txt_` Print a file to the terminal
-* `more _file.txt_`: Scroll through a file
-* `less _file.txt_`: Scrolls through a file (going backwords allowed)
-* `head -n 7`: Print the first 7 lines of a file
-* `tail -n 7`: Print the last 7 lines of a file
+* `more _file.txt_`: Scroll forward through a file without hiding the rest of the terminal.
+* `less _file.txt_`: Scroll through a file (going backwards allowed). Also hides the rest of the terminal.
+* `head -n 7 _file.txt_`: Print the first 7 lines of a file
+* `tail -n 7 _file.txt_`: Print the last 7 lines of a file
 * `wc _file.txt_`: Word count
 * `wc -w _file.txt_`: Figure out how many words
 * `wc -l _file.txt_`: Figure out how many lines
-* `diff`
+* `diff _file.txt_ _file2.txt_`: Compare two files line by line.
 
 
 === Searhing for Things
 
-* `grep` (don't ask why it's called grep): filters for things that you print 
-* `find`: will search for a specified file
-//* `locate?`//
+* `grep` ("global regular expression print"): Filters for things that you print -- searches within files 
+* `find _file.txt_`: Will search for a specified file
 
 == Handling files
 
@@ -156,7 +155,7 @@ In Windows, you'll want to use `cd ~` instead.
 
 === Making things
 
-IMPORTANT: Don't use special characters or spaces... EVER. If you do somehow end up with a filename with special characters or spaces, put it in quotes or single quotes when referencing it. (Example: 'file name.txt')
+IMPORTANT: Don't use special characters or spaces... EVER. This results in a risk of your filename interfering with commands or being read improperly by programs. If you do somehow end up with a filename with special characters or spaces, put it in quotes or single quotes when referencing it. (Example: 'file name.txt'.) This is not a foolproof solution, but may help.
 
 NOTE: acceptable characters: dash - underscore _ or forward slash /
 
