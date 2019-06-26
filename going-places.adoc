@@ -1,5 +1,5 @@
 = Moving around
-:toc: \left
+:toc: left
 
 == Commands and Concepts
 Commands: cd
