@@ -1,0 +1,97 @@
+// So Amy and I talked about having a more general example of how to use ssh than the one for nero
+// Since that would allow us to post information on ssh in a place where people don't need confluence access
+// And a lot of people in the collaboration need to use it.
+
+// I put this here for now as that's the place that makes the most sense as far as I know right now,
+// But it can be moved later.
+// In the framework of the overall unix tutorial,
+// This is definitely a more advanced topic, so it would go at the end,
+// Maybe listed as an optional thing.
+// Or even completely separate from the rest of it.
+
+= Connecting to the Outside
+
+:toc: left
+
+== Commands and Concepts
+
+Commands: ssh, ssh-keygen
+
+Concepts: remote login, ports, keys, configuration
+
+== Exercise 1: Connect to Another Computer
+
+// example needs a place for people to use it.
+
+. SSH stands for Secure Shell.  It allows you to connect log in remotely to another computer and use its shell as if you were really there. Run `ssh user@some.computer` to try to connect to some computer.
++
+Hm, that didn't work. Let's try something slightly different.
+
+. Since we don't have permission to use that port right now, try `ssh -p ## user@some.computer` to specify a port that you're allowed to log into. You may see a warning message that the host cannot be verified; this will happen the first time you connect to any host computer.
+
+. You can now use this computer with any of the unix-like commands you've already learned! When you're done here, you can use `exit` or `logout` to return to your own computer.
+
+== Exercise 2: Creating and Using an SSH Key
+
+// example needs a place for people to use it.
+
+. Now we're going to try to connect to the default port that we couldn't use before. We'll do this by creating a key. Navigate to your home directory and type `ssh-keygen -t rsa`. Hit enter at every prompt to accept all of the defaults.
+
+. Now we need to find the key we just made. Find an ssh directory in your home directory (hint: it might be hidden!), navigate there, and take a look at what files are inside.
++
+You should actually find two keys. (You may also find some other files as well):
+```
+id_rsa  id_rsa.pub  known_hosts
+```
+One of these keys is private. This is how your computer encrypts information to send and decrypts information to receive. If you share this key with anyone, they will be able to tell others that they are using your computer, even if they aren't. No one else needs your private key, so never share it with anyone! The "pub" in the other key is short for "public;"" you may share this one with anyone you like, even complete strangers! This key allows other computers to recognize you but gives them no way to imitate yours. 
++
+Go ahead and copy the contents of your public key to your clipboard.
+
+. Reconnect to some computer. 
++
+If you're getting an error, check if you've set which port you're trying to use. Remember that the other computer needs to have our key before it can recognize us.
+
+. Now, go to your home directory and look for `.ssh` again. You may need to create this directory if it doesn't exist already.
+
+. Create a file named `authorized_keys` in `~/.ssh` and paste your public key into it. (If your or someone else have already created this file, then paste your key into a new line. If you have this file but don't know where it came from, contact someone immediately.)  Save the file and return to your own computer.
+
+. Finally, we can test if this key works. Try the command we tried the first time -- `ssh user@some.computer` -- and you should be able to connect now!
+
+== Exercise 3: Configuring SSH
+
+Let's say that you frequently connect to a compuer that has a long name and requires a specific port: `ssh -p 26 username@specific-computer.cluster.domain.edu`.
+With the right configuration, we could make this much shorter: `ssh comp`.
+
+. Navigate back to your home directory's `.ssh` folder.
+
+. Create a new file named `config`. This file will allow us to configure as many ssh connections as we like. Essentially, we're making nicknames for computers we want to connect to and telling the computer how we want to connect to these computers.
+
+. Each entry would look something like:
+```
+Host nickname
+    HostName hostname
+    User username
+    Port #
+    IdentityFile key/location
+```
+So, for the example above, we would use:
+```
+Host comp
+    Hostname specific-computer.cluster.domain.edu
+    User username
+    Port 26
+    IdentityFile /home/_yourusername_/.ssh/id_rsa
+```
+
+. Go ahead and try this one out as well!
++
+You might get an error telling you there are bad permissions.  This is because your `config` file needs to only be readable and writeable by you. To fix this, you can use `chmod 600 ~/.ssh/config`.
+
+== Test Yourself
+
+//I've got no ideas for this as of yet.
+
+== Common Errors
+
+`ssh _nickname_`: Bad Permissions -- The permissions on your `.ssh/config` file are too open. You can correct this with `chmod 600 ~/.ssh/config`
+`ssh`: Permission Denied -- This could mean several things. You could be mistyping a password or connecting on the wrong port. It could also mean your key is missing from the host or misplaced on your local machine.
