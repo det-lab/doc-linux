@@ -11,8 +11,8 @@
 :commandkey: &#8984;
 :optionkey: &#8997;
 :shiftkey: &#x21e7;
-:imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
 :ext-relative: adoc
+:imagesdir: ./images
 
 
 
