@@ -25,6 +25,12 @@ This will be accomplished by performing the following tasks:
 . Handling Files
 . Handling Processes
 
+== Prerequisites
+
+To perform the following exercises, download this https://github.com/det-lab/linux-practice-repo[repository] to your home directory. 
+
+
+
 == What is the Shell?
 
 Inspired by the original UNIX operating system, *the trademark feature of all UNIX-like operating systems is the shell*. Common Unix-like operating systems include macOS and any distribution of Linux. Check out this awesome video to learn more about the original UNIX shell: 
