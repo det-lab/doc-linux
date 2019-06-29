@@ -1,0 +1,51 @@
+:tip-caption: 💡
+:note-caption: 📝
+:caution-caption: ⚠️
+:warning-caption: 🔥
+:important-caption: ❗️
+
+= Using Git to Download Files
+
+:toc: left\
+:experimental:
+:commandkey: &#8984;
+:optionkey: &#8997;
+:shiftkey: &#x21e7;
+:ext-relative: adoc
+:imagesdir: ./images
+
+== Introduction
+__This is an optional part of the Unix Tutorial. If you would like to skip it, you may simply download the files from here: https://github.com/det-lab/linux-practice-repo and save them to your home directory.__
+
+The following is a brief introduction to using **git** to **clone** files.  Git is a protocol designed for version control; it allows several people to work on the same thing while minimizing issues that result from conflicting changes.  Several people work on copies of the same **repository** -- analogous to a directory -- which is available somewhere online (though not necessarily on the world-wide web).  We aren't going to worry about making changes -- we just want to make a copy for ourselves, and fortunately for us, there's no need to worry about making accidental changes because we won't be sending anything back to the original repository.
+
+== Terminology
+
+**git:** Protocol designed for version control, though it is also used for acquiring publicly-available content.
+
+**repository:** Analogous to a directory.  This is a collection of files associated with a single adress that can be pushed or pulled to and from.
+
+**clone:** Acquire a copy of a git repository.  This involves downloading all of the files as well as configuring the new directory to be able to push to and pull from the origin.
+
+**origin:** The "original" copy of the repository.  Despite the naming convention, it is possible for the origin to move.
+
+**push:** Send changes to the origin. This has to be initiated by the user; changing files won't automatically send them to the origin and it is difficult to push by accident.
+
+**pull:** Receive changes from the origin.
+
+== Exercise
+_Don't stress if you're unfamiliar with some of the commands below; just follow them word for word and you should be fine. We'll get to those commands in other parts of the tutorial.
+
+. In your terminal, type `cd ~` to get to the place you'll be saving your files to.
+
+. Our repository is at this url: https://github.com/det-lab/linux-practice-repo.git. So, to clone it, you'll use:
+//not yet set to public.
+```
+git clone https://github.com/det-lab/linux-practice-repo.git
+```
+
+. Now let's move the files we need into the home directory:
+```
+mv linux-practic-repo/mydir ~/mydir
+```
+And now we should be ready to start the rest of the tutorial!
