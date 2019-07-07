@@ -19,15 +19,42 @@ Commands: ssh, ssh-keygen
 
 Concepts: remote login, ports, keys, configuration
 
+
+== Exercise 0: Setting up the Tutorial Environment
+
+This tutorial can serve as a guide for connecting to any machine, so if you already have a machine you wish to connect to, feel free to start at Exercise 1.
+Note that not all machines are configured the same for connecting or hosting via ssh, so your steps may differ from those in the tutorial.
+
+If you do not have a machine to connect to, a python script (in this repository, named "Tutorial_Script.py") has been made to allow you to run through the tutorial.
+This script functions as a fake pair of computers for you to ssh to and from.  You can only "run" the commands necessary to get through this tutorial, and they are not truly run, so nothing is altered on your computer while using the script.
+
+All commands within the script are assumed to be run from the home directory.
+
+. If you haven't already, download the file `Tutorial_Script.py`.
+
+. If your local machine does not yet have python, use `sudo apt install python` to acquire it.
+
+. To run the python script, use `python /path/to/script/Tutorial_Script.py`.
+
 == Exercise 1: Connect to Another Computer
 
-// example needs a place for people to use it.
-
-. SSH stands for Secure Shell.  It allows you to connect log in remotely to another computer and use its shell as if you were really there. Run `ssh user@some.computer` to try to connect to some computer.
+. SSH stands for Secure Shell.  It allows you to connect log in remotely to another computer and use its shell as if you were really there. To try to connect to that computer, run:
++
+```
+ssh guest@specific-computer.cluster.domain.edu
+``` 
 +
 Hm, that didn't work. Let's try something slightly different.
 
-. Since we don't have permission to use that port right now, try `ssh -p ## user@some.computer` to specify a port that you're allowed to log into. You may see a warning message that the host cannot be verified; this will happen the first time you connect to any host computer.
+. Since we don't have permission to use that port right now, try:
++
+```
+ssh -p 26 guest@specific-computer.cluster.domain.edu
+```
++
+The `-p 26` here specifies a port -- hopefully one that you're allowed to log into. You may see a warning message that the host cannot be verified; this will happen the first time you connect to any host computer. 
++
+You'll be prompted for a password; the password for the ssh machine within the script is simply `password`.
 
 . You can now use this computer with any of the unix-like commands you've already learned! When you're done here, you can use `exit` or `logout` to return to your own computer.
 
@@ -35,19 +62,21 @@ Hm, that didn't work. Let's try something slightly different.
 
 // example needs a place for people to use it.
 
-. Now we're going to try to connect to the default port that we couldn't use before. We'll do this by creating a key. Navigate to your home directory and type `ssh-keygen -t rsa`. Hit enter at every prompt to accept all of the defaults.
+. Now we're going to try to connect to the default port that we couldn't use before. We'll do this by creating a key. From your home directory, type `ssh-keygen -t rsa`.
 
-. Now we need to find the key we just made. Find an ssh directory in your home directory (hint: it might be hidden!), navigate there, and take a look at what files are inside.
+. Now we need to find the key we just made. Find an ssh directory in your home directory (hint: it might be hidden!) and take a look at what files are inside.
 +
 You should actually find two keys. (You may also find some other files as well):
++
 ```
 id_rsa  id_rsa.pub  known_hosts
 ```
++
 One of these keys is private. This is how your computer encrypts information to send and decrypts information to receive. If you share this key with anyone, they will be able to tell others that they are using your computer, even if they aren't. No one else needs your private key, so never share it with anyone! The "pub" in the other key is short for "public;"" you may share this one with anyone you like, even complete strangers! This key allows other computers to recognize you but gives them no way to imitate yours. 
 +
 Go ahead and copy the contents of your public key to your clipboard.
 
-. Reconnect to some computer. 
+. Reconnect to the other computer. 
 +
 If you're getting an error, check if you've set which port you're trying to use. Remember that the other computer needs to have our key before it can recognize us.
 
@@ -55,18 +84,29 @@ If you're getting an error, check if you've set which port you're trying to use.
 
 . Create a file named `authorized_keys` in `~/.ssh` and paste your public key into it. (If your or someone else have already created this file, then paste your key into a new line. If you have this file but don't know where it came from, contact someone immediately.)  Save the file and return to your own computer.
 
-. Finally, we can test if this key works. Try the command we tried the first time -- `ssh user@some.computer` -- and you should be able to connect now!
+. Finally, we can test if this key works. Try the command we tried the first time: 
++
+```
+ssh guest@specific-computer.cluster.domain.edu
+``` 
++
+You should be able to connect now!
 
 == Exercise 3: Configuring SSH
 
-Let's say that you frequently connect to a compuer that has a long name and requires a specific port: `ssh -p 26 username@specific-computer.cluster.domain.edu`.
+Typing in the full name of this other computer has gotten rather tedious, as has specifying a port every time.
+Rather than typing:
++
+```
+ssh -p 22 username@specific-computer.cluster.domain.edu
+```
++
 With the right configuration, we could make this much shorter: `ssh comp`.
 
-. Navigate back to your home directory's `.ssh` folder.
-
-. Create a new file named `config`. This file will allow us to configure as many ssh connections as we like. Essentially, we're making nicknames for computers we want to connect to and telling the computer how we want to connect to these computers.
+. In your `.ssh` directory, create a new file named `config`. This file will allow us to configure as many ssh connections as we like. Essentially, we're making nicknames for computers we want to connect to and telling the local machine how we want to connect to these computers.
 
 . Each entry would look something like:
++
 ```
 Host nickname
     HostName hostname
@@ -74,12 +114,14 @@ Host nickname
     Port #
     IdentityFile key/location
 ```
++
 So, for the example above, we would use:
++
 ```
 Host comp
     Hostname specific-computer.cluster.domain.edu
     User username
-    Port 26
+    Port 22
     IdentityFile /home/_yourusername_/.ssh/id_rsa
 ```
 
