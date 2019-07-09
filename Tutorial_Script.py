@@ -71,53 +71,63 @@ chmod = {'chmod 600 ~/.ssh/config',
     'chmod 600 .ssh/config'}
 
 #Taking commands.
-a = 0
-while a == 0: #Force indefinite loop.
+stop = 0
+while stop == 0: #Indefinitely long loop
     prompt = raw_input(' $ ') #Initial prompt
+
+    #Commands
+
     if prompt in ssh22:
         if ssh == 1:
             print("TUTORIAL ERROR: You're already connected!")
         elif ssh == 0:
             if key == 1:
+                print("Last login: Unknown from local")
                 print("Congratulations! You've completed Exercise 2.")
                 ssh = 1
             elif key == 0:
-                print("You do not have permission to connect to port 22 on this computer.")
+                print("ssh: connect to host specific-computer.cluster.domain.edu port 22: Connection refused")
 
     elif prompt in ssh26:
         if ssh == 1:
             print("TUTORIAL ERROR: You're already connected!")
         elif ssh == 0:
-            prompt = raw_input("password: ")
+            prompt = raw_input("guest@specific-computer.cluster.domain.edu's password: ")
             ssh = 1
             if key == 0:
                 while known == 0:
-                    prompt = raw_input("Host unrecognized. Continue? [yes/no]: ")
-                    if y:
+                    print("The authenticity of host 'specific-computer.cluster.domain.edu (123.45.678.900)' can't be established.")
+                    print("RSA key fingerprint is ABC123:AWJIFEO198334qu89Uu19.")
+                    prompt = raw_input("Are you sure you want to continue connecting (yes/no)? ")
+                    if prompt in y:
                         known = 1
+                        print("Warning: Permanently added 'specific-computer.cluster.domain.edu (123.45.678.900)' (RSA) to the list of known hosts.")
                         print("Congratulations! You've completed Exercise 1.")
-                    elif n:
+                    elif prompt in n:
                         ssh = 0
                         print("Disconnected from remote host.")
-                        break
                     else: print("Please type 'yes' or 'no.'")
+            elif key == 1:
+                print("Last login: Unknown from local")
+
 
     elif prompt in sshcf:
         if ssh == 1:
             print("TUTORIAL ERROR: You're already connected!")
         elif ssh == 0:
             if config == 0:
-                print("Host not found.")
+                print("ssh: Could not resolve hostname comp: Temporary failure in name resolution")
             elif config == 1:
                 if perms == 0:
-                    print("Bad permissions.")
+                    print("Bad owner or permissions on /home/user/.ssh/config")
                 elif perms == 1:
                     if key == 1:
                         ssh = 1
+                        print("Last login: Unknown from local")
                         print("Congratulations! You've completed Exercise 3. The tutorial will now close.")
-                        a = 1
+                        stop = 1
                     elif key == 0:
-                        print("Key unrecognized by remote host.")
+                        print("ssh: connect to host specific-computer.cluster.domain.edu port 22: Connection refused")
 
     elif prompt in q:
         if ssh == 1: ssh = 0
@@ -208,7 +218,6 @@ while a == 0: #Force indefinite loop.
                 print("File not found.")
             elif config == 1:
                 perms = 1
-                print("Success.")
         elif ssh == 1:
             print("File not found.")
 
