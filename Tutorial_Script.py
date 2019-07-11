@@ -37,7 +37,7 @@ rpub = {'more .ssh/id_rsa.pub',
     'less ~/.ssh/id_rsa.pub',
     'more /home/user/.ssh/id_rsa.pub',
     'less /home/user/.ssh/id_rsa.pub'}
-ckey = {'aB123 user@local'}
+ckey = {'ssh-rsa aB123 user@local'}
 rpv = {'less .ssh/id_rsa',
     'more .ssh/id_rsa',
     'less ~/.ssh/id_rsa',
@@ -149,7 +149,7 @@ while stop == 0: #Indefinitely long loop
 
     elif prompt in keygen:
         gen = 1
-        print("Key created.")
+        print("Generating public/private rsa key pair.")
 
     elif prompt in epub:
         if ssh == 0:
@@ -165,7 +165,7 @@ while stop == 0: #Indefinitely long loop
             if gen == 0:
                 print("The specified file does not exist.")
             elif gen == 1:
-                print("aB123 user@local")
+                print("ssh-rsa aB123 user@local")
                 print("TUTORIAL NOTE: Real keys will be much longer than this one.")
 
     elif prompt in rpv:
