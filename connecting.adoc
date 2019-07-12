@@ -32,7 +32,7 @@ All commands within the script are assumed to be run from the home directory.
 
 . If you haven't already, download the file `Tutorial_Script.py`.
 
-. If your local machine does not yet have python, use `sudo apt install python` to acquire it.
+. If your local machine does not yet have python, use `sudo apt install python` to acquire it. You will need version 3.x to run this script.
 
 . To run the python script, use `python /path/to/script/Tutorial_Script.py`.
 

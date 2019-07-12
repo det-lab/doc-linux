@@ -71,9 +71,14 @@ chmod = {'chmod 600 ~/.ssh/config',
     'chmod 600 .ssh/config'}
 
 #Taking commands.
+print("Welcome to the ssh tutorial script!")
+print("Please see 'connecting.adoc' for instructions.")
 stop = 0
 while stop == 0: #Indefinitely long loop
-    prompt = raw_input(' $ ') #Initial prompt
+    if ssh == 0:
+        prompt = input('user@local $ ') #Initial prompt
+    elif ssh == 1:
+        prompt = input('guest@specific-computer.cluster.domain.edu $ ') #ssh'd prompt
 
     #Commands
 
@@ -92,13 +97,13 @@ while stop == 0: #Indefinitely long loop
         if ssh == 1:
             print("TUTORIAL ERROR: You're already connected!")
         elif ssh == 0:
-            prompt = raw_input("guest@specific-computer.cluster.domain.edu's password: ")
+            prompt = input("guest@specific-computer.cluster.domain.edu's password: ")
             ssh = 1
             if key == 0:
                 while known == 0:
                     print("The authenticity of host 'specific-computer.cluster.domain.edu (123.45.678.900)' can't be established.")
                     print("RSA key fingerprint is ABC123:AWJIFEO198334qu89Uu19.")
-                    prompt = raw_input("Are you sure you want to continue connecting (yes/no)? ")
+                    prompt = input("Are you sure you want to continue connecting (yes/no)? ")
                     if prompt in y:
                         known = 1
                         print("Warning: Permanently added 'specific-computer.cluster.domain.edu (123.45.678.900)' (RSA) to the list of known hosts.")
@@ -189,7 +194,7 @@ while stop == 0: #Indefinitely long loop
     elif prompt in auth:
         if ssh == 1:
             print("TUTORIAL NOTE: A generic text prompt will be used instead of the specified editor.")
-            prompt = raw_input("file_contents $ ")
+            prompt = input("file_contents $ ")
             if prompt in ckey:
                 key = 1
                 print("Saved.")
@@ -202,11 +207,11 @@ while stop == 0: #Indefinitely long loop
             print("TUTORIAL ERROR: Cannot create file. Did you mean to disconnect first?")
         elif ssh == 0:
             print("TUTORIAL NOTE: A generic text prompt will be used instead of the specified editor.")
-            prompt = raw_input("line 1 $ ")
-            prompt = prompt + " " + raw_input("line 2 $     ")
-            prompt = prompt + " " + raw_input("line 3 $     ")
-            prompt = prompt + " " + raw_input("line 4 $     ")
-            prompt = prompt + " " + raw_input("line 5 $     ")
+            prompt = input("line 1 $ ")
+            prompt = prompt + " " + input("line 2 $     ")
+            prompt = prompt + " " + input("line 3 $     ")
+            prompt = prompt + " " + input("line 4 $     ")
+            prompt = prompt + " " + input("line 5 $     ")
             if prompt in cfig:
                 config = 1
                 print("Saved.")
