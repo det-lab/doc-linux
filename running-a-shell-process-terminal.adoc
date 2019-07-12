@@ -52,12 +52,37 @@ For Windows, do one of the following: +
 
 __(PowerShell is generally recommended over Command Prompt as both can run CMD commands, but PowerShell has access to more Unix-like commands. Please also note that Windows commands may differ from Unix-based commands. We recommend downloading the Ubuntu WSL, available for free in the Microsoft Store on Windows 10, to follow most tutorials.)__
 
+
+There are various Linux operating systems, but one of the following will most likely work for you:
+
+. Ubuntu or Linux Mint:
+* Press kbd:[Ctrl + Alt + T]
++
+. Xubuntu or CentOS: 
+* Press kbd:[WIN + T]
++
+. If you have an "Applications" menu, terminal is likely located there.
++
+. If you are able to access your keyboard shortcuts, you can set one for terminal there or check for an existing one.
+
+
 *Quitting the Terminal*
 
+For Any Operating System:
+
+* Type `exit` or `logout` into the terminal and press kbd:[Enter]. (If your terminal is busy or unresponsive, see below, or follow your normal steps for killing an unresponsive process.)
 
 For macOS: 
 
-. In the Menu Bar, click Terminal > Quit Terminal.
+* In the Menu Bar, click Terminal > Quit Terminal.
+
+For Windows:
+
+* Right click your terminal program in the taskbar and click "Close Window"
+
+For Linux:
+
+* Press kbd:[Ctrl + D]
 
 == What are commands?
 

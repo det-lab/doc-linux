@@ -111,7 +111,8 @@ bash: cd: my-dir02: No such file or directory
 .. did I utilize the correct path?
 +
 {zwsp} +
-. So far all of the commands we have run are examples examples of *relative paths* (pathanmes that link us to our destination only from our current working directory). 
+
+So far all of the commands we have run are examples examples of *relative paths* (pathnames that link us to our destination only from our current working directory). 
 
 == Exercise 3: Listing content in the root directory
 
@@ -163,6 +164,8 @@ $ *ls /bin*
 CAUTION: hidden files shouldn't be messed with until you are more familiar with the command-line! 
 
 == Common Errors
+
+`No such file or directory`: Check that your path is correct. If you can't tell, using absolute paths may be helpful.
 
 == Additional Resources
 

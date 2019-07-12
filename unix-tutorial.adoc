@@ -185,7 +185,7 @@ NOTE: acceptable characters: dash - underscore _ or forward slash /
 * `mv _directory1/file /directory2/_`: move a file from one directory into another directory
 
 
-=== removing things
+=== Removing Things
 
 CAUTION: Proceed with care - you can really screw things up
 
@@ -197,8 +197,15 @@ NOTE: Files are backed up, but let's not go there
 
 === Permissions
 
-* changing groups
-* changing permissions
+CAUTION: Proceed with care - while most permissions errors are fixable, if you remove your own permissions, it may be hard to get them back!
+
+* `groupadd _groupname_`: Create a new group.
+* `usermod -a -G _groupname_ _username_`: changing groups
+* `chmod __\### filename__`: Change permissions for the given file.
+** User, group, all
+** correspond to binaries: read/write/execute
+** ex: `chmod 765 _file.txt_` gives user 111(rwx), group 110(rw-), all 101(r-x)
+
 * adding sticky bits
 
 
@@ -216,12 +223,12 @@ NOTE: Files are backed up, but let's not go there
 ---
 *Miscellaneous* 
 
-* `echo "_Hello World_"`: Prints hello world to the terminal
+* `echo "_Hello World_"`: Prints `Hello World` to the terminal.
 * `sed`: Replaces things for you
 * `awk`: Will let you print specific fields of data (columns)
 * `bc`: Doing math is easier in bash scripts if you pipe it through bc
 * `cut`: Tool for chopping up strings
 * `uniq`: Gets rid of duplicate things
-* `sort`
-* `paste`
-* `clear`: Clear screen
+* `sort`: Sorts lines of text files.
+* `paste`: Horizontally joins multiple files.
+* `clear`: Clear terminal inputs and outputs.
