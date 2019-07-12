@@ -33,17 +33,23 @@ epub = {'vi .ssh/id_rsa.pub',
     'nano /home/user/.ssh/id_rsa.pub'}
 rpub = {'more .ssh/id_rsa.pub',
     'less .ssh/id_rsa.pub',
+    'cat .ssh/id_rsa.pub',
     'more ~/.ssh/id_rsa.pub',
     'less ~/.ssh/id_rsa.pub',
+    'cat .ssh/id_rsa.pub',
     'more /home/user/.ssh/id_rsa.pub',
-    'less /home/user/.ssh/id_rsa.pub'}
+    'less /home/user/.ssh/id_rsa.pub',
+    'cat /home/user/.ssh/id_rsa.pub'}
 ckey = {'ssh-rsa aB123 user@local'}
 rpv = {'less .ssh/id_rsa',
     'more .ssh/id_rsa',
+    'cat .ssh/id_rsa',
     'less ~/.ssh/id_rsa',
     'more ~/.ssh/id_rsa',
+    'cat ~/.ssh/id_rsa',
     'less /home/user/.ssh/id_rsa',
-    'more /home/user/.ssh/id_rsa'}
+    'more /home/user/.ssh/id_rsa',
+    'cat /home/user/.ssh/id_rsa'}
 epv = {'nano .ssh/id_rsa',
     'vi .ssh/id_rsa',
     'vim .ssh/id_rsa'}
@@ -71,14 +77,26 @@ chmod = {'chmod 600 ~/.ssh/config',
     'chmod 600 .ssh/config'}
 
 #Taking commands.
+print()
 print("Welcome to the ssh tutorial script!")
 print("Please see 'connecting.adoc' for instructions.")
+print()
+print("============================")
+print()
+print("The following aliases are used:")
+print()
+print("'ls' functions as 'ls 1'")
+print("'less' and 'more' will function as 'cat'.")
+print("All text editors will be generic.")
+print()
+print("============================")
+print()
 stop = 0
 while stop == 0: #Indefinitely long loop
     if ssh == 0:
-        prompt = input('user@local $ ') #Initial prompt
+        prompt = input('user@local:~$ ') #Initial prompt
     elif ssh == 1:
-        prompt = input('guest@specific-computer.cluster.domain.edu $ ') #ssh'd prompt
+        prompt = input('guest@specific-computer.cluster.domain.edu~$ ') #ssh'd prompt
 
     #Commands
 
@@ -158,29 +176,28 @@ while stop == 0: #Indefinitely long loop
 
     elif prompt in epub:
         if ssh == 0:
-            print("TUTORIAL ERROR: Can't edit. To view contents, use 'less' or 'more.'")
+            print("TUTORIAL ERROR: Can't edit. To view contents, use 'less,' 'more,' or 'cat.'")
         elif ssh == 1:
             print("TUTORIAL ERROR: Can't create file")
 
     elif prompt in rpub:
-        print("TUTORIAL NOTE: Will render similarly to 'more,' but may vary.")
         if ssh == 1:
-            print("The specified file does not exist.")
+            print("No such file or directory.")
         elif ssh == 0:
             if gen == 0:
-                print("The specified file does not exist.")
+                print("No such file or directory.")
             elif gen == 1:
                 print("ssh-rsa aB123 user@local")
                 print("TUTORIAL NOTE: Real keys will be much longer than this one.")
 
     elif prompt in rpv:
         if ssh == 1:
-            print("The specified file does not exist.")
+            print("No such file or directory.")
         elif ssh == 0:
             if gen == 0:
-                print("The specified file does not exist.")
+                print("No such file or directory.")
             elif gen == 1:
-                print("TUTORIAL WARNING: This is your private key! Keep it safe! [You can neither view nor edit this file.]")
+                print("TUTORIAL ERROR: This is your private key! Keep it safe! [You can neither view nor edit this file.]")
 
     elif prompt in epv:
         if ssh == 1:
@@ -189,11 +206,10 @@ while stop == 0: #Indefinitely long loop
             if gen == 0:
                 print("TUTORIAL ERROR: Cannot create this file.")
             elif gen == 1:
-                print("TUTORIAL WARNING: This is your private key! Keep it safe! [You can neither view nor edit this file.]")
+                print("TUTORIAL ERROR: This is your private key! Keep it safe! [You can neither view nor edit this file.]")
 
     elif prompt in auth:
         if ssh == 1:
-            print("TUTORIAL NOTE: A generic text prompt will be used instead of the specified editor.")
             prompt = input("file_contents $ ")
             if prompt in ckey:
                 key = 1
@@ -206,7 +222,6 @@ while stop == 0: #Indefinitely long loop
         if ssh == 1:
             print("TUTORIAL ERROR: Cannot create file. Did you mean to disconnect first?")
         elif ssh == 0:
-            print("TUTORIAL NOTE: A generic text prompt will be used instead of the specified editor.")
             prompt = input("line 1 $ ")
             prompt = prompt + " " + input("line 2 $     ")
             prompt = prompt + " " + input("line 3 $     ")
@@ -220,12 +235,12 @@ while stop == 0: #Indefinitely long loop
     elif prompt in chmod:
         if ssh == 0:
             if config == 0:
-                print("File not found.")
+                print("No such file or directory.")
             elif config == 1:
                 perms = 1
         elif ssh == 1:
-            print("File not found.")
+            print("No such file or directory.")
 
     elif prompt.startswith('cd') == True: print("TUTORIAL ERROR: Unsupported command; only the home directories are supported for this tutorial. Try using relative file paths instead.")
 
-    else: print("TUTORIAL ERROR: Unrecognized command. Please closely follow the steps in the exercises and check your spelling.")
+    else: print("TUTORIAL ERROR: Unrecognized command, argument, or target. Please closely follow the steps in the exercises and check your spelling.")
