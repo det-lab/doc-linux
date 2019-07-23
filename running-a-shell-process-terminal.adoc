@@ -15,7 +15,7 @@
 
 == What's the difference between the terminal and the shell?
 
-If you're a bit confused about the difference between the shell and the terminal check out the video below (but don't worry, this confusion will fade away as you gain more experience with running commands). 
+If you're a bit confused about the difference between the shell and the terminal, check out the video below (but don't worry, this confusion will fade away as you gain more experience with running commands). 
 
 
 video::Yt57-gg9jVg[youtube, width=600, height=400, align=center]
@@ -89,7 +89,7 @@ For Linux:
 *Commands* are shell executables that tell your computer to perform certain types of tasks. All commands can be run in the command line. Some examples of things that commands can do are creating or removing files, moving a directory, or running another executable. Other commands may download, compile, and install a program. Generally, commands won't be able to directly interact with a GUI (graphical user interface).
 
 
-* syntax (commands, options, arguments)
+//* syntax (commands, options, arguments) //commented because I think we covered this now
 
 In general, a command will have a syntax something like: +
 `command -arguments target`. +
@@ -109,9 +109,12 @@ As an example, type `apt-get update` -- this command should update any applicati
 
 Did you get a `Permission denied` message? Let's try again with a slight modification: `sudo apt-get update`. This gives the command elevated priveleges, letting it get around some of the permission errors you'll encounter. Make sure that you know what commands do before you run them with `sudo` -- these permissions are often restricted for a reason!
 
-If `sudo` isn't working for you, you'll need to be added to the sudo group on your computer.  If you're on Windows, the equivalent to using `sudo` is to run CMD or PowerShell as an administrator (right click and select `Run as Administrator`).
+If `sudo` isn't working for you, you'll need to be added to the sudo group on your computer before you can use these commands.
+If you're on Windows, the equivalent to using `sudo` is to run CMD or PowerShell as an administrator (right click and select `Run as Administrator`).
 
 * command line prompt
+//something like this?
+Occassionally you'll be prompted for input when you run a command. Often, these are simple yes/no inputs, as you may have gotten in the example above if there were new updates to be installed.  Other commands, such as `adduser`, may require more open-ended inputs such as usernames and passwords.
 
 == How to Use the Terminal (Like a Pro)
 
