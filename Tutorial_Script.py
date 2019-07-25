@@ -102,10 +102,12 @@ while stop == 0: #Indefinitely long loop
 
     if prompt in ssh22:
         if ssh == 1:
-            print("TUTORIAL ERROR: You're already connected!")
+            print("There is a time and a place for everything! But not now.")
+            print("[TUTORIAL ERROR: You're already connected!]")
         elif ssh == 0:
             if key == 1:
                 print("Last login: Unknown from local")
+                print()
                 print("Congratulations! You've completed Exercise 2.")
                 ssh = 1
             elif key == 0:
@@ -113,7 +115,8 @@ while stop == 0: #Indefinitely long loop
 
     elif prompt in ssh26:
         if ssh == 1:
-            print("TUTORIAL ERROR: You're already connected!")
+            print("There is a time and a place for everything! But not now.")
+            print("[TUTORIAL ERROR: You're already connected!]")
         elif ssh == 0:
             prompt = input("guest@specific-computer.cluster.domain.edu's password: ")
             ssh = 1
@@ -125,6 +128,7 @@ while stop == 0: #Indefinitely long loop
                     if prompt in y:
                         known = 1
                         print("Warning: Permanently added 'specific-computer.cluster.domain.edu (123.45.678.900)' (RSA) to the list of known hosts.")
+                        print()
                         print("Congratulations! You've completed Exercise 1.")
                     elif prompt in n:
                         ssh = 0
@@ -136,7 +140,8 @@ while stop == 0: #Indefinitely long loop
 
     elif prompt in sshcf:
         if ssh == 1:
-            print("TUTORIAL ERROR: You're already connected!")
+            print("There is a time and a place for everything! But not now.")
+            print("[TUTORIAL ERROR: You're already connected!]")
         elif ssh == 0:
             if config == 0:
                 print("ssh: Could not resolve hostname comp: Temporary failure in name resolution")
@@ -147,6 +152,7 @@ while stop == 0: #Indefinitely long loop
                     if key == 1:
                         ssh = 1
                         print("Last login: Unknown from local")
+                        print()
                         print("Congratulations! You've completed Exercise 3. The tutorial will now close.")
                         stop = 1
                     elif key == 0:
@@ -206,7 +212,8 @@ while stop == 0: #Indefinitely long loop
             if gen == 0:
                 print("TUTORIAL ERROR: Cannot create this file.")
             elif gen == 1:
-                print("TUTORIAL ERROR: This is your private key! Keep it safe! [You can neither view nor edit this file.]")
+                print("This is your private key! Keep it safe!")
+                print("[TUTORIAL ERROR: You can neither view nor edit this file.]")
 
     elif prompt in auth:
         if ssh == 1:
@@ -220,7 +227,7 @@ while stop == 0: #Indefinitely long loop
 
     elif prompt in fig:
         if ssh == 1:
-            print("TUTORIAL ERROR: Cannot create file. Did you mean to disconnect first?")
+            print("TUTORIAL ERROR: Cannot create file. (Did you mean to disconnect first?)")
         elif ssh == 0:
             prompt = input("line 1 $ ")
             prompt = prompt + " " + input("line 2 $     ")
@@ -241,6 +248,8 @@ while stop == 0: #Indefinitely long loop
         elif ssh == 1:
             print("No such file or directory.")
 
+    else: print("I am sorry, my responses are limited. You must ask the right questions.")
     elif prompt.startswith('cd') == True: print("TUTORIAL ERROR: Unsupported command; only the home directories are supported for this tutorial. Try using relative file paths instead.")
 
-    else: print("TUTORIAL ERROR: Unrecognized command, argument, or target. Please closely follow the steps in the exercises and check your spelling.")
+    else: print("I am sorry, my responses are limited. You must ask the right questions.")
+    else: print("[TUTORIAL ERROR: Unrecognized command, argument, or target. Please closely follow the steps in the exercises and check your spelling.]")
