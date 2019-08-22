@@ -1,0 +1,335 @@
+= Expansion
+:toc: left
+
+The shell breaks down certain as they're typed into the command line before you hit enter.
+
+For example:
+
+```sh
+$ echo hello world
+hello world
+$ echo *
+Applications Desktop Det-Lab-Doc Documents Downloads LBM Library Movies Music Pictures```
+```
+
+A * wasn't returned because the shell had already expanded it as a wildcard t include the names of any files in the current working directory. 
+
+== Pathname Expansion
+If we try some of the techniques employed earlier, we will see that they are just expansions. 
+
+
+$ ls 
+Applications
+Desktop
+Det-Lab-Doc
+Documents
+Downloads
+Library
+Movies
+Music
+Pictures
+
+
+$ echo D*
+Desktop Det-Lab-Doc Documents Downloads
+
+$ echo *s
+Applications Documents Downloads Movies Pictures
+
+== tilde expansion
+
+~ indicates home directory
+
+$ echo ~
+/Users/eljefe
+
+== Arithmetic Expansion
+
+shell can perform arithmetic by expansion
+
+$ echo $((2+2))
+4
+
+arithmetic expansion uses form:
+
+`$((expression))`
+
+this type of expansion only supports intgers
+
+spacing not significant but the expression must be nested, to mulitply 5 squared by 3:
+
+```sh
+$ echo $(($((5**2)) * 3))
+```
+
+Single parentheses may be used to group multiple expressesions:
+
+```sh
+$ echo $(((5**2) * 3))
+```
+
+example for division and remainder operators: 
+```sh
+$ echo Five divided by two equals $((5/2))
+Five divided by two equals 2
+[me@linuxbox me]$ echo with $((5%2)) left over.
+with 1 left over.
+```
+
+== Brace Expansion
+
+$ echo Front-{A,B,C}-Back
+Front-A-Back Front-B-Back Front-C-Back
+
+echo Number_{1..5}
+Number_1 Number_2 Number_3 Number_4 Number_5
+
+ echo {Z..A}
+Z Y X W V U T S R Q P O N M L K J I H G F E D C B A
+
+NESTED:
+
+echo a{A{1,2},B{3,4}}b
+aA1b aA2b aB3b aB4b
+
+What is this good for?
+
+Best application for making lists of files or directories to be created. For example...
+
+Makes organizing files very easy. 
+
+You could type out a complete list of directoris but thats a lot of work and error prone. 
+
+[me@linuxbox me]$ mkdir Photos
+[me@linuxbox me]$ cd Photos
+[me@linuxbox Photos]$ mkdir {2007..2009}-0{1..9} {2007..2009}-{10..12}
+[me@linuxbox Photos]$ ls
+
+2007-01 2007-07 2008-01 2008-07 2009-01 2009-07
+2007-02 2007-08 2008-02 2008-08 2009-02 2009-08
+2007-03 2007-09 2008-03 2008-09 2009-03 2009-09
+2007-04 2007-10 2008-04 2008-10 2009-04 2009-10
+2007-05 2007-11 2008-05 2008-11 2009-05 2009-11
+2007-06 2007-12 2008-06 2008-12 2009-06 2009-12
+==
+
+command substitution allows us to use the output as an expansion. 
+
+```sh
+$ echo $(ls)
+Applications Desktop Det-Lab-Doc Documents Downloads LBM Library Movies Music Pictures
+```
+another example:
+
+```sh
+$ ls -l $(which cp)
+-rwxr-xr-x  1 root  wheel  29024 May  4 00:49 /bin/cp
+Dylans-MacBook-Pro-5:~ eljefe$ 
+```
+
+above, passed results of which cp as an argument to the ls command, thereby getting the listing of the cp prgram without having to know the full path=name. .
+
+piping:
+
+```sh
+$ file $(ls /usr/bin/* | grep bin/zip)
+
+/usr/bin/bunzip2:
+/usr/bin/zip:      ELF 32-bit LSB executable, Intel 80386, version 1 
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+/usr/bin/zipcloak: ELF 32-bit LSB executable, Intel 80386, version 1
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+/usr/bin/zipgrep:  POSIX shell script text executable
+/usr/bin/zipinfo:  ELF 32-bit LSB executable, Intel 80386, version 1
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+/usr/bin/zipnote:  ELF 32-bit LSB executable, Intel 80386, version 1
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+/usr/bin/zipsplit: ELF 32-bit LSB executable, Intel 80386, version 1
+(SYSV), dynamically linked (uses shared libs), for GNU/Linux 2.6.15, stripped
+```
+above, results of the pipeline becaame argument list of the file command. 
+
+== Quoting
+
+learn how to control expansions:
+
+```sh
+[me@linuxbox me]$ echo this is a     test
+this is a test
+```
+or 
+
+```sh
+[me@linuxbox me]$ [me@linuxbox ~]$ echo The total is $100.00
+The total is 00.00
+```
+
+solution:
+
+```sh
+$ echo "this is a     test"
+```
+```sh
+$echo The total is "$"100.00
+```
+== Double Quotes
+
+if you place text in double quotes:
+
+* special characters used by shell lose meaning
+** exceptions: $, \, and ` (back quote)
+** means that word-splitting, pathname expansion, tilde expansion, and brace expansion are suppressed
+** means that parameter exp., arith. exp. , and command substution are still carried ou
+
+double quotes make it easier to deal with filenames having spaces. For example:
+
+```sh
+$ $ ls -l two words.txt
+
+ls: cannot access two: No such file or directory
+ls: cannot access words.txt: No such file or directory
+```
+
+solution:
+
+```sh
+$ ls -l "two words.txt"
+-rw-rw-r-- 1 me me 18 2008-02-20 13:03 two words.txt
+$ mv "two words.txt" two_words.txt
+```
+NOTE: parameter, arithmetic and command substitution still executed within double quotes:
+
+```sh
+$ echo $ "$USER $((2+2)) $(cal)"
+```
+
+
+```sh
+$ echo cal
+$ echo $(cal)
+$ echo "$(cal)"
+```
+
+First: cal command
+
+Second: command substituation resulted in command line containing thirty-eight arguments
+
+Third: command line with one argument that includes the embedded spaces and newlines
+
+== Single Quotes
+
+use single quotes to supress all expansions
+
+
+```sh
+[me@linuxbox me]$ echo text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
+text /home/me/ls-output.txt a b foo 4 me
+[me@linuxbox me]$ echo "text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER"
+text ~/*.txt {a,b} foo 4 me
+[me@linuxbox me]$ echo 'text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER'
+text ~/*.txt {a,b} $(echo foo) $((2+2)) $USER
+```
+more and more of the expansions supressed, going from double to single quotes
+
+
+
+== Escaping Characters
+
+to quote a single character:
+
+yeah, you could:
+
+```sh
+$ echo "$"5.00
+$ echo ""5".00"
+$ echo '$5.00'
+```
+
+guaranteed way? backslash \ (escape) character within double quotes:
+
+```sh
+$ echo "The balance for $USER is: \$5.00"
+The balance for user me is: $5.00
+```
+
+escaping charaters can also be used to eliminate special meaninig of character in filename ($,!,&," (space)",etc.):
+
+```sh
+$ mv bad\$filename good_filename
+```
+== More Backslash Tricks
+
+look at the man pages for any program written by the https://www.gnu.org[GNU project]. 
+
+You can add comments both with - and a single letter or -- and a long option name . 
+
+```sh
+ls -r
+ls --reverse
+```
+
+NOTE: The BSD (Mac OS X) version of ls (installed as /usr/bin/ls) does not support the --full-time option.
+
+```sh
+ls -l \
+   --reverse \
+   --human-readable \
+   --full-time
+```
+using backslashes like this allow you to add new lines in the command. 
+
+NOTE: don't use a space after the backslash, otherwise the space gets ignored, not the newline. 
+
+\n -newline: Adding blank lines to text
+
+\t - tab: Inserting horizontal tabs to text
+
+\a - alert: Makes your terminal beep
+
+\\ - backslash: Inserts a backslash
+
+\f - formfeed: Sending this to your printer ejects the page
+
+
+
+== errors
+
+```sh
+$ ls -l
+ \
+> --reverse \
+> --human-readable \
+> --full-time
+ls: illegal option -- -
+usage: ls [-ABCFGHLOPRSTUWabcdefghik
+lmnopqrstuwx1] [file ...]
+Dylans-MacBook-Pro-5:~ eljefe$ 
+```
+
+solution (kind of)
+
+```sh
+$ ls -l
+ \
+> -reverse \
+> -readable
+0 drwxr-x---+ 77 eljefe  staff  2464
+ Aug 17 13:14 .
+ 0: group:everyone deny delete
+```
+After searching online, found, -T: 
+
+```sh
+-T      When used with the -l (lowercase letter ``ell'') option, display
+             complete time information for the file, including month, day,
+             hour, minute, second, and year.
+
+```
+From stack overflow:
+
+The BSD (Mac OS X) version of ls (installed as /usr/bin/ls) does not support the --full-time option.
+
+The GNU version of ls does support --full-time. I have the GNU ls installed in a different directory (/usr/gnu/bin/ls).
+
+Are you sure that you have GNU ls on your machine at all?
+If so, are you sure your PATH includes the directory where it is installed ahead of /usr/bin when you run scripts?

@@ -1,0 +1,18 @@
+= Making Changes
+These four commands are some of the most requently used Linux commands. Used for manipulating both files and directories.
+
+
+You'll use the following comands:
+* `*cp*` - copy files and directories
+* `*mv*` = move or rename files and directories
+* `*rm*` - removie files and directories
+* `*mkdir*` = create directories
+
+In some instanes it's easier to use a graphical file manager to manipulate a bunch of files at once. 
+
+But there's more power and flexibiltiy in using the shell For example, imagine needing to copy all all the HTML files from one directory into another but 
+
+cp - u  )
+google.com
+--0000
+)

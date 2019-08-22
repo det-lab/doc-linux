@@ -1,0 +1,222 @@
+= Navigating through Directories
+:toc: left
+
+A key feature of the shell is the ability to manage all of the files and folders stored on your computer's hard drive. But before that, let's learn how to navigate through your files and folders, or simply, your _file system_. 
+
+By the end of this you will know how to answer the following three questions when navigating through the filesystem:
+
+* Where am I?
+* How do I change my working directory?
+* How can I see the files stored within a directory?
+
+== Visualizing the File System
+
+The term _directory_ is just a fancy name for folder- the ones we use to organize files on a computer. 
+The files stored on Unix-like OSs have a hieararchical structure, similar to an inverted tree. From the top down, we start with the _root directory_. All files and directories are stored within the root directory. The root directory is represented by a forward slash (*/*). 
+
+// insert image of Finder app
+
+== Printing Your Current Working Directory (pwd)
+The Unix filesystem can be likened to one of my favorite games growing up: the classic arcade version of Donkey Kong. You start at the bottom of a series of platforms connected by ladders. The goal is to maneuver your way to the top while dodging and jumping over obstacles. At any given moment, the platform that you're on represents a single directory, on that platform you can see the files and the pathway (ladder) to the _parent directory_ (upper platform) and the pathway to the subdirectories (platforms beneath you). 
+
+The dirctory in which you currently stand is called the _working directory_. To find the name of this directory, use the `*pwd*` command. 
+
+// pwd screenshot
+
+Most Unix-systems automatically direct you to the _home directory_ when you first login to the shell. On most operating systems the home directory will be called /home/your_user_name, but it can be adjusted by the system adminstrator. 
+
+Your home directory is special and important for 2 reasons:
+* several hidden confiuration files which affect your shell environment are in this area
+* it's owned by you and you can freely maniupulate the directories and files here - it's your space!
+
+== Listing files (ls)
+
+To list the files in the working directory, use the `*ls*` command.
+
+list the files in your home directory
+
+// screenshot ls
+
+
+In every directory that are hidden files. These can be revealed by typing
+
+```sh
+$ ls -a
+```
+// insert screenshot
+
+NOTE: the minus sign "-" in the command above is called a _flag_. Flags are used to add options, to tweak the way a command funcions. common options for the three commands discuessed here are listed at the end of this page.  
+
+
+
+== Changing Directories (cd)
+
+To change your working directory (the platform that you're standing on in the game) use the `*cd*` command. type `*cd*` followed by the _pathname_ of the desired working directory. 
+
+
+A pathname is the route you take along the branches of the tree to get to your desired location. There are two different kinds of pathnames: _absolute pathnames_ and _relative pathnames_. 
+
+NOTE: File abd directory names are case sensitive: in Unix OSs, "File1"and "file1" are not the same.
+
+== How to Use Absolute Pathnames
+Absolute pathnames always begin with the root directory, trailing down the branches of the tree until the desired path to the directory or file has been reached. Take the following pathname for example: /usr/bin. On Unix-like OSs, most programs are installed in this directory. This means that within the root directory (/), there is a sub-directory called "usr" which contains another sub-directory called "bin".
+
+In the command line, type 
+
+```sh
+$ cd /usr/bin
+$ pwd
+/usr/bin
+$ ls
+```
+// insert screenshot
+
+
+NOTE: Did your promp change  to reflect your location in a new directory? Most shell environments are set up to display the working directory. 
+
+//screens For example prompt
+
+== How To Use Relative Pathnames 
+
+Relative pathnames on the other hand are only accessible from the current working directory. Relative pathnames typically iclude a "." (dot) and a (dot dot).
+
+The "." refers to the current working directory, whereas the ".." refers to the _parent directory_, a directory that houses the current working directory. 
+
+Change the working directory to /usr/bin again:
+
+```sh
+$ cd /usr/bin
+$ pwd
+/usr/bin
+```
+
+// insert screenshot
+
+What absolute and relative pathnames can use to change directories from "bin" to "usr"?
+
+The absolute pathname would look like:
+
+```sh
+$ cd /usr
+$ pwd
+/usr
+```
+
+And the relative pathname would look like this:
+
+```sh
+$ cd ..
+$ pwd
+/usr
+```
+TIP: Both methods give the same results. Using the one that requires the least amount of typing!
+
+How can we change the working directory from /usr to /usr/bin using both pathname types?
+
+Using an abslolute pathname:
+
+```sh
+$ cd /usr/bin
+$ pwd
+/usr/bin
+```
+Using a relative pathname:
+
+```sh
+$ cd ./bin
+$ pwd
+/usr/bin
+```
+
+You can omit the "./" for  most cases involving a relative pathname (the working directory will be assumed). Typing the following will work just as well
+
+```sh
+$ cd bin
+```
+
+NOTE: There is one important exception to this which will be discussed later on. 
+
+== Making and Fixing Mistakes
+
+Mistakes and errors messages are inevitable. 
+
+TIP: Read error messages patiently and methodically. They really do help. 
+
+[frame=all]
+[caption=]
+.Common Error Messages: ls and cd
+|===
+|Error Message | Ask Yourself
+
+| No such file or directory
+| Did I mispell?
+ Is the casing correct? 
+ Should I try different pathname?
+
+|
+|===
+
+== Summary
+
+[frame=all]
+[caption=]
+|===
+| Question |Use this command
+
+|Where am I?
+|`*pwd*` (print working directory), 
+
+|How do I change my working directory?
+|`*cd*` (change directory) 
+|How do I see the files stored in a directory
+|`*ls*` (list files and directories). 
+|===
+
+
+== Quick Reference: Navigate Like a Pro
+
+[frame=all]
+[caption=]
+|===
+| Command | Meaning 
+
+|`pwd`
+|Print current working directory
+
+|`ls`
+| List all the files
+
+| `ls -l`
+| List all the files, permissions and last edit time
+
+| `ls -1`
+| List all the files, one per line
+
+| `ls -a`
+| Include hidden files
+
+| `ls -F`
+| List file types
+
+|`cd _/my/desired/location_`
+| changes directories to desired location
+
+| `cd` or `cd ~`
+| go to your home directory
+
+
+| `cd ~user_name`
+| change working directory to home directory of a user 
+
+| `cd -`
+| return to your most recent working directory
+
+| `cd ..`
+| go up one directory
+
+| `cd ../..`
+| go up two directories
+|===
+
+
+

@@ -1,0 +1,137 @@
+= Text Editors
+:toc:left
+
+A text editor is a program, like a word processor, that reads and writes ASCII text files. There are many text editors:
+
+Name
+
+Description
+
+Interface
+
+vi, vim
+
+The granddaddy of Unix text editors, vi, is infamous for its difficult, non-intuitive command structure. On the bright side, vi is powerful, lightweight, and fast. Learning vi is a Unix rite of passage, since it is universally available on Unix-like systems. On most Linux distributions, an enhanced version of the traditional vi editor called vim is used.
+
+command line
+
+Emacs
+
+The true giant in the world of text editors is Emacs by Richard Stallman. Emacs contains (or can be made to contain) every feature ever conceived for a text editor. It should be noted that vi and Emacs fans fight bitter religious wars over which is better.
+
+command line
+
+nano
+
+nano is a free clone of the text editor supplied with the pine email program. nano is very easy to use but is very short on features. I recommend nano for first-time users who need a command line editor.
+
+command line
+
+gedit
+
+gedit is the editor supplied with the Gnome desktop environment.
+
+graphical
+
+kwrite
+
+kwrite is the "advanced editor" supplied with KDE. It has syntax highlighting, a helpful feature for programmers and script writers.
+
+graphical
+
+$ vim hello
+_world
+
+now, type in your first script as follows:
+
+#!/bin/bash
+# My first script
+
+echo "Hello World!"
+
+
+First line of script is important: This is called a _shebang_. This lets the shell know which progrm to use when interpreting the script. In this case, it is /bin/bash. 
+
+The second line is called a _comment_. Everyhing that appears after a $ is ignored by *bash*. They are used to explain what is going on in the script. 
+
+The last line is the `*echo*` command.
+
+== Setting permissions
+
+The next thing to do is give the shell permission to execute your script. This is done with the *chmod* command. 
+
+The 755 will give you read, write and execute permission. 
+
+== Putting it in your path
+
+At this point your script will run:
+
+```sh 
+$ ./hello_world
+`
+
+```sh
+chmod 755
+ ./hello_world
+```
+
+
+== Vim
+
+The problem with learning vim is not that it's hard to do -- it's that you ahve to keep doing it. 
+
+This tutorial will take you though every stage of progression. 
+
+== Why vim?
+
+. widely available for different Unix-like OSs.
+. scalable: use it to just edit config files or it can become your entire writing platform. 
+. powerful. works like a programming language.
+
+== Approach
+
+rguably the most brilliant thing about vim is that as you use it you begin to think in it. vim is set up to function like a language, complete with nouns, verbs, and adverbs.
+
+Keep in mind that the terms I'm going to use here are not technically correct, but should help you understand better how vim works.
+
+== Vim as Language
+
+Verbs
+Verbs are the actions we take, and they can be performed on nouns. Here are some examples:
+
+d: delete
+c: change
+y: yank (copy)
+v: visually select (V for line vs. character)
+Modifiers
+Modifiers are used before nouns to describe the way in which you're going to do something. Some examples:
+
+i: inside
+a: around
+NUM: number (e.g.: 1, 2, 10)
+t: searches for something and stops before it
+f: searches for that thing and lands on it
+/: find a string (literal or regex)
+Nouns
+In English, nouns are objects you do something to. They are objects. With vim it's the same. Here are some vim nouns:
+
+w: word
+s: sentence
+): sentence (another way of doing it)
+p: paragraph
+}: paragraph (another way of doing it)
+t: tag (think HTML/XML)
+b: block (think programming)
+
+= nouns as motin
+
+
+You can also use nouns as motions, meaning you can move around your content using them as the size of your jump. We'll see examples of this below in the moving section.
+
+== Copy and Paste
+
+copying text:
+
+y: yank (copy) whatever's selected
+yy: yank the current line
+

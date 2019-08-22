@@ -1,0 +1,101 @@
+= I/O Redirection
+:toc: left
+
+Powerful feature called _input/output redirection_. Instead of printing output to the display, we can redirect the ouptu as an iput to other commands.
+
+== Standard Output
+
+Most command lines prorams display results to a facility called _standard output_ which then sends its conents to the display. 
+
+We can redirect standard output to a file using the ">" character. For example:
+
+```
+$ ls > file_list.txt
+```
+The ls command executed and listed the results in a file named file_list.txt.
+
+If we were to runt the same command again, file_list.txt would be overwritten. 
+
+If we don't want to overwrite the original file but instead _append_ (add on) the results, use ">>":
+
+```sh 
+$ ls >> file_list.txt
+```
+With the results appended, the new results are added to the end of the file. 
+
+NOTE: if the file does note exist when you try appending the redirected output, a new file will be created. 
+
+== Standard Input
+
+_Standard inpur_ is a facility where commands get input. The standard input usually gets contents form the keyboard. But just like Standard output, we can redicrect standard input with the "<" character. 
+
+```sh
+$ sort < file_list.txt
+```
+
+
+In the example above, we used the `*sort*` command to process the contents of file_list.txt which has the same effect as running:
+
+```sh
+$ sort file_list.txt
+```
+instead let's run:
+
+```sh
+
+$ sort < file_list.txt > sorted_file_list.txt
+```
+The main takeaway is that commands can have both inputs and outputs redirect. 
+
+IMPORTANT: order of the redirection does not matter. Only thing that matters is that redirection operators ("<" and ">") must appear after the other optinos and arguments in the command. 
+
+== Piping
+
+Most useful and powerful I/O redirection is with piping. 
+
+Piping will allows you to combine multiple commands.
+
+The standard output of one command is fed as the standard input of another.
+
+```sh
+$ ls -l | less
+```
+Output of ls is fed into input of less which gives it a scrolling output. 
+
+|===
+|Command |What it does
+
+| ls -lt / head
+|Displays the 10 newest files in the current directory.
+
+| (du | sort -nr)
+|Displays a list of directories and how much space they consume, sorted from the largest to the smallest.
+
+|(find . -type f -print | wc -l)
+|Displays the total number of files in the current working directory and all of its subdirectories.
+|===
+
+== Filters
+
+_Filters_: Common type of program used in piping. 
+
+Take standard input and perform an operation on it, then sends result to SO.
+
+Common Filters:
+`*sort` - sorts standard input based on alphabetical/numerical (first digit) order, then outputs results. 
+
+`*uniq*` - Given a sorted stream of data from standard input, it removes duplicate lines of data
+
+`*grep*` - file pattern searcher
+
+`*fmt*` - simplest text formatter
+
+`*pr*` - print files
+
+`*head*` - display first lines of a file
+
+`*sed*` - stream editor, can perform text translations. 
+
+`*awk*` - entire programming language for constructing filters 
+
+

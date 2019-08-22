@@ -1,0 +1,152 @@
+= Job Control
+:toc: left
+
+Unix OSs are multiasking capable. 
+
+
+So far we've only ran programs one by one and had to wait for them to finish before we moved on to another. 
+
+
+UNIX OSs execute multiple, simultaneous processes (appear that way). A signle processor can only execute one process at a time but the kernel mangaes to give each process its turn at the processor. 
+
+Commands:
+
+* `*ps*` - list running processes
+* `*sleep*` - 
+* `*kill*` - send a signal to one or more processes (usually to kill)
+* `*jobs*` - an alternate way of listing your own processes
+* `*bg*` - put a process in background
+* `*fg*` - put a process in foreground
+
+== jobs
+
+`*job*` lists all the running tasks. 
+
+We can run any command we like in the background, while we get on with work at the terminal, by adding a ‚&‛ symbol at the end of the line. For example:
+
+```sh
+$ sleep 1000 &
+```
+now run:
+
+```sh
+$ jobs
+[1]+  Running                 sleep 1000 
+&
+```
+
+The [1] gives the job number
+
+"Runnig" means that the task is running. 
+
+Kill the task and verify:
+
+```sh
+$ kill %1
+$ jobs 
+[1]+  Terminated: 15          sleep 1000
+```
+NOTE: we need to add a % to the start of the job number
+
+
+= fg bg 
+
+```sh
+$ sleep 1000
+```
+press control-z
+
+```sh
+$ jobs
+[1]+  Stopped                 sleep 1000
+$ bg %1
+$ jobs
+[1]+  Running                 sleep 1000 &
+$ fg %1
+sleep 1000
+```
+Press control-c
+
+NOTE: if a + symbol appears after the job number, that means that typeing bg or fg alone will run the job.
+
+== ps
+
+* lower level command for looking at _processes_ 
+* shows process id 
+* names all the processes running in your shell 
+* there can be many processes per job). 
+
+```sh
+$ ps
+  PID TTY           TIME CMD
+  998 ttys001    0:00.30 /bin/bash -l
+Dylans-MacBook-Pro-5:Det-Lab-Doc eljefe$ 
+```
+the process itself as well as the shell (bash) were listed
+
+== kill
+
+To terminate a process, type
+`*kill*` followed by the process ID number:
+
+`*kill*` `*_PID_*`
+
+
+```sh
+$ sleep 1000 &
+[1] 2927
+
+$ ps
+  PID TTY           TIME CMD
+ 2837 ttys000    0:00.04 -bash
+  998 ttys001    0:00.32 /bin/bash -l
+ 2927 ttys001    0:00.00 sleep 1000
+$ kill 2927
+$ ps
+  PID TTY           TIME CMD
+ 2837 ttys000    0:00.04 -bash
+  998 ttys001    0:00.32 /bin/bash -l
+[1]+  Terminated: 15          sleep 1000
+```
+
+try killing the the shell and verify that you did
+
+```sh
+$ kill 998
+$ ps
+  PID TTY           TIME CMD
+ 2837 ttys000    0:00.04 -bash
+  998 ttys001    0:00.33 /bin/bash -l
+```
+```sh
+$ kill -KILL 998
+```
+The terminal should have closed on you. 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

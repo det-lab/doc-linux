@@ -1,0 +1,60 @@
+= Exploring the Root Directory
+
+The structure of various Unix-like OSs vary. As mentioned before, however, all subdirectoreis and files are stored within the root directory. Now is your chance to explore the root directory on your current system. 
+
+
+. Change your current workng directory to the  those listed below and list the content of . each 
+. use the file command to determine its contents
+. for text files use less to view them
+
+
+|===
+|Directory |Function
+
+|/bin 
+|programs (shell commands)
+
+|/sbin 
+|programs (shell commands) programs that only the root or super user can run
+
+|/usr
+|/usr/share/man: man pages kept here
+
+|/lib (for Linux) and /usr/lib (for Mac)
+|support libraries for running various programs - these are shared piece so fcode that more than one program can make use of
+
+|tmp
+|space for temporary files
+
+|/etc
+|space for configuration files
+
+|/src (couldn't find on mac)
+|source code
+
+|/include
+|used for the installation of that's not native to the machine
+
+|/var
+|contains files that change as system is running
+/var/log
+
+directory used to contain log files. These are updated as system rungs. Should be checked to monitor helahto f system.
+
+/var/spool
+
+used to hold files that are queued for some process, such as mail messages and print jobs. When a user's mail first arrives on the local system (assuming you have local mail), the messages are first stored in /var/spool/mail
+
+|/home
+|where all users home directories are stores
+
+|/dev
+|special directory where devices are stored and treated like files
+
+|/proc
+|special, virtual directory where not files are stored with limited access to kernel itself
+(not on macOS)
+
+|mnt
+|places where removable drives appear
+|===

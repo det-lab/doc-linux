@@ -1,0 +1,234 @@
+= Permissions
+:toc: left
+
+UNIX OSS are _multi-user_: more than one user can be operating the computer at the same time. For example if your computer is connected to a network, or the internet, remote users can log in using a secure shell. 
+
+To protect different users from each other or prevent one user crashing the computer, prevent users interfering with files belonging to somone else:
+
+`*chmod*` modify access rights
+`*sudo*` - temporry access as root user (system administrator)
+`*su*` - temporarily become the superuser
+`*chown*` - change file ownership
+`*chgrp*` - change a file's goup ownership
+
+== File Permissions (ls -l)
+
+```sh
+$ ls -l /bin/bash 
+-r-xr-xr-x  1 root  wheel  618416 May  4 00:49 /bin/bash
+```
+
+// insert screenshot for permissions
+
+
+== chmod
+
+* `*chmod*` changes the mode (permissions) of a file or directory
+
+* you must specify the desired mode (permission settings) and the file or files that you wish to modify 
+
+run:
+
+```sh
+$ man chmod
+```
+
+look at the first lising under SYNOPSIS:
+
+chmod [-fv]
+           [-R [-H | -L | -P]] mode
+           file ...
+
+remember that everything in brackets is optional. 
+
+Instead let's focus on the mode. 
+
+Remeber, man pages use `*less*`, to find information about mode, let's do a search using the less commands. But first, to get help type 'h'. Now scroll down utnil you find information about searching.
+
+                     SEARCHING
+
+  /pattern          *  Search forward for (N-th
+) matching line.
+
+In the first line underneath SEARCHING it suggests tha we can look use /pattern to search forward for mathing lines
+
+type q to leave the list help page. now were back in the man page for chmod. Enter the forward slash and type
+
+/mode
+
+then hit enter and scroll until you find some useful information. 
+
+Under DIAGNOSTICS it explains that modes can be absolute or symbolic. 
+
+For this case, symbolic modes will be easier to work with. keep scrolling. 
+
+```sh
+The symbolic mode is described by the
+     following grammar:
+ mode         ::= clause [, clause ...]
+           clause       ::= [who ...] [action ...] action
+           action       ::= op [perm ...]
+           who          ::= a | u | g | o
+           op           ::= + | - | =
+           perm         ::= r | s | t | w | x |X | u | g | o
+ The who symbols ``u'', ``g'', and
+     ``o'' specify the user, group, and
+     other parts of the mode bits, respec-
+     tively.  The who symbol ``a'' is equivalent to ``ugo''.
+
+```
+Scroll down until you find information about the mode 
+
+How would you use the chmod command to make sure that anyone in any group would be able to read the contents of a file you create. Also, how would you make a file
+executable (so it can be run as a program). 
+
+file accessible to read by anyone
+`chmod a+r filename`
+
+file executable just for you:
+`chmod u+x filename`
+
+# octal notation
+
+think of permssion settings as a series of bits, this is how the computer thinks about them. Here's how it works:
+
+```sh
+rwx rwx rwx = 111 111 111
+
+rw- rw- rw- rw- = 110 110 110 
+
+r-- r-- r-- = 100 100 100
+
+and so on...
+
+rwx = 111 in binary = 7
+rw- = 110 in binary = 6
+r-x = 101 in binary = 5
+r-- = 100 in binary = 4
+```
+Each of the three sets of permissions can be represented by a single digit for the owner, group and other. 
+
+So, if we wanted to set read and write priveleges for the owner but no permissions for group and other, type:
+
+```sh
+$ chmod 600 some_file
+```
+== reference
+
+777 - rwxrwxrwxrwx no restrictions. Anybody can do anything. 
+
+755 (rwxr-xr-x) - file owner has no restrictions, group and other can only read and execute. 
+
+700 - rwx------
+666 r-xr-xr-x
+644 rw-r--r--
+600 - rw--------
+
+== Directory Permissions
+
+this time r,w and x attributes have different meaning
+
+r - allows content of directory to be listed if the x attribute is also set
+x- allows files within directory to be created, deleted or renamed if the xattribute is also set
+x - allows a directory to be entered (i.e. cd dir)
+
+Useful settings for directories:
+
+777 - rwxrwxrwx anyone can list files, create new files and delete old ones in the directory. Generally not a good setting. 
+
+
+755 - rwxr-xr-x directory owner has full access all others may list the directory but cannot create files nor delete old ones. common setting for directories that you'll share with others. 
+
+700 rwx------ the directory owner has full access. no one can list, make, or delete files within the directory. essentially a private directory. 
+
+
+== Becoming the Superuser for a Short While (su)
+
+* often necessary to become the superuser to perform imoprtant system admin tasks
+
+WARNING: don't stay logged in too long. can mess things up. 
+
+`*su*` - chot for subtitue user, can be used when you need superuser access for small number of tasks:
+
+```sh
+$ su
+Password:
+su: Sorry
+$ sudo passwd
+Changing password for root.
+New password:
+Retype new password:
+$ su
+Password:
+sh-3.2# 
+```
+to exit:
+
+```sh
+sh-3.2# exit
+```
+# sudo
+
+with sudo one or more users are granted superuser priveleges on an as need basis
+
+to run command as superuser, using sudo:
+
+```
+$ sudo some_command
+Password:
+$
+```
+NOTE: password is user password, not superuser
+
+== changing file ownership
+
+change file owner using chown command
+
+to change owner of file from me to you:
+
+```sh
+$ su
+Password:
+# chown you some_file
+# exit
+$
+```
+chown works same on directories as files
+
+NOTE: to change owner of file, must be superuser. 
+
+== Changing Group Ownership (chgrp)
+
+```sh
+$ chgrp new_group som_file
+```
+
+NOTE: must be owner of file or directory to perform chgrp
+
+
+
+
+
+
+
+
+== Common Error Message
+
+n error message which Linux users might encounter:  "Permission denied."
+
+- Trying to read or alter a file which you have no right to
+ Trying to delete a file or directory which you have no right to
+ Trying to create a file in an area which you have no right to
+
+try:
+
+```sh
+$ mkdir /etc/wibble
+mkdir: /etc/wibble: Permission denied
+```
+This is because /etc is owned by the systems administrators account (known as ‚root‛) and root has not given write permission to this area.
+
+
+```
+
+

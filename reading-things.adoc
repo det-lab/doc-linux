@@ -1,0 +1,155 @@
+= Inspecting Files 
+:toc: left
+
+You've learned how to a) figure out where you are in the filesystem (`*pwd*`), and b) change your working directory (`*cd*`). But to get really good at navigating through the filesystem, we need to know what kind of files are actually around us. 
+
+Imagine you have a desk that's cluttered with old notes, scratch pieces of paper and important documents. To organize it, you'd have to skim through each document and random pieces of paper to know which were important and which you could just toss away.  
+
+Just like skimming through physical documents, the following commands will skim and evaluate the importance of files stored on your comoputer's hard drive:
+
+* `*ls*` (list files and directories)
+* `*less*` (view text files)
+* `*grep*` (search for keyword in text files)
+* `*file*` (classify a file's content)
+
+
+== ls
+
+`*ls*` does a lot more than just listing files and directories. Before we discuss the capabilities of *ls* let's go over the basic structure of shell commands.  
+
+== Command Syntax
+
+Most Unix commands have the following structue:
+
+`_command_ -_options_ _arguments_`
+
+where _command_ is the name of the command, -_options_ changes the overall and arguments is something that the command acts upon. A useful example of this is `*ls -l*` where `*-l*` stands for "long".
+
+== ls -l 
+
+In Unix OSs, ownership and a set of  *permissions* is assigned to every file and directory. What you can and cannot do with files and directories is defined by those perfmissions. 
+
+Running `*ls -l*` in the command line yields the following output: 
+
+```sh
+Dylans-MacBook-Pro-5:unix-practice eljefe$ ls -l mydir/
+total 16
+drwxr-xr-x  5 eljefe  staff   160 Aug 14 16:21 my-dir01
+drwxr-xr-x  5 eljefe  staff   160 Aug 14 16:21 my-dir02
+-rw-r--r-- 1 eljefe  staff  4392 Jun  2 04:05 quotes1
+----------- --------  ----   -------   ------  -------
+|   |           |      |        |         |        |
+|   |           |      |        |         |        + -------- File Name  
+|   |           |      |        |         + ----------------- Modification Time
+|   |           |      |        + --------------------------- Size (bytes)              
+|   |           |      + ------------------------------------ Group 
+|   |           + ------------------------------------------- Owner
+|   + ------------------------------------------------------- File Permissions
++ ----------------------------------------------------------- File Type
+```
+
+Looking at the example output above and going right to left, each column reveals specific information about each of the files listed. 
+
+|===
+
+|Column 1| *File Name* | The name of the file. 
+
+|Column 2|*Modification Time* |The last time changes were made to the file. 
+
+|Column 3| *Size* | Size of the file in bytes.
+
+|Column 4| *Group*| The name of the group that has permission to the file. 
+
+|Column 5| *Owner* | The name of the user who owns the file.
+|===
+
+The column on the very left contains *File type* and *File Permissions*. In Unix OSs, 
+
+* Character 1 is the type of file: "d" is for directory and "-" is for a regular file
+* Characters 2-4 are the read/write/execute permissions for the owner of the file.
+* Characters 5-7 are the read/write/execute permissions for the group the file is associated with. 
+* Characters 8-10 are the read/write/execute permisions for everyone else. 
+
+In the example above, the file named "quotes1" is a file as indicated by "-" in the first column. The owner "eljefe" has reading and writing permissions but cannot execute. The Group and everyone else are only able to read the file, not write (alter) it. 
+
+We will discuss the meaning of each permission type later on. 
+
+== less
+
+`*less*` allows you to view text files in the terminal. Handy because a lot of files used to control and configure the shell are human readable. 
+
+```sh
+Dylans-MacBook-Pro-5:mydir eljefe$ ls
+my-dir01	my-dir02	quotes1
+Dylans-MacBook-Pro-5:mydir eljefe$ less quotes1 
+```
+// Insert screenshot of less output
+
+Press space to scroll and "q" to quit. 
+
+TIP: `*less*` has its own set of commands to navigate through a text file. You can access these commands by pressing "h" for help. 
+
+== Navigating with less
+
+|===
+|command |action
+
+| Page up or b 
+| scroll back on page
+
+|Page Down or space
+|Scroll forward one page
+
+|G 
+|Go to end of text file
+
+|1G 
+| Go to beginning of text file
+
+|/characters
+|Search forward in the text file for an occurence of the specified characters
+
+|n
+|Repeat the previous search
+
+|h
+|Display a complete list of commands and options 
+
+|q
+|quit
+|===
+
+== grep
+
+use grep to look for lines containing a keyword:
+
+```sh
+$ grep _keyword_ _myfile.txt_
+```
+
+
+
+== file
+
+If you're ever unsure about the type of a file you encounter, you can always use the command `*file*`:
+
+```sh
+Dylans-MacBook-Pro-5:mydir eljefe$ file my-dir01
+my-dir01: directory
+Dylans-MacBook-Pro-5:mydir eljefe$ file quotes1 
+quotes1: UTF-8 Unicode text, with very long lines
+Dylans-MacBook-Pro-5:mydir eljefe$ 
+```
+
+Many files can be viewed as text, expeially important configuration files. you will notice during our aventure that many features of an operating sysem are controlled by shell scripts written in plain text. 
+
+Primary text viewable file types include: ASCII text, Unicode text, BASH scripts and HTML. 
+
+== Common Errors
+
+== Summary
+
+ls -l
+
+
+

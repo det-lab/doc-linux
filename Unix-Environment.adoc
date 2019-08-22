@@ -1,0 +1,71 @@
+= Environment Variables and Shell Variables
+//:toc: left
+
+
+Concepts: shell variables and environment variabls
+
+
+Commands: 
+`*export*`
+`*env*`
+`*set*`
+
+
+the linux environment is comprised of a set of variables each of which have value. 
+
+enivornment variables are used for the configuration of both the shell and applications.
+
+environment variables in the shell are prefixed with a $. 
+
+to print anything to the display, we use the `*echo*` command. So to print the contents of a variable called *PATH*:
+
+```sh
+$ echo  ${PATH}
+```
+
+Try setting a variable yourself:
+
+```sh
+$ export MYNAME=Dylan
+```
+
+To print out the whole of your environment, use the *env* command:
+
+```sh
+$ env
+```
+
+
+Useful Standard variables:
+
+$USER Your username
+$SHELL The name of the shell you are using
+$PATH The list of directories to look in for programs when running a command,
+these are separated by a colon (:). $PWD The current directory
+$HOME Your home directory (same as ~)
+
+How could you add the current directory to the list of directories to search for programs in?
+
+There are a number of other environment variables which specify a list of directories to look for files of various types in (these tend to end in PATH). The directories are searched in a left-to- right direction so it makes a difference to whether you put a new directory at the start or end of the list. Also watch not to put extra colons in at the end or beginning of the path as the shell will translate this to mean that you wish to also look in the current directory (when the search happens).
+
+There is a similar concept to environment variales: shell variables. Try the following command to set a shell variable:
+
+```sh
+$ myname=yourname
+$ echo $myname
+$ env
+```
+
+echo still prints the value of the shell variable but it's not in the output of env. 
+
+Environment variables are seen by progrmas that you run.
+
+Shell variables are only seen by the shell. 
+
+You can see all the shell variabls by using the `*set*` command:
+
+```sh
+$ set
+```
+
+In general environment variables have names in upper-case with underscores (_) representing spaces while shell variables have names in lower-case with underscores (_) representing spaces.

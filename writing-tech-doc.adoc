@@ -1,0 +1,35 @@
+
+# First Day
+
+(onboarding)
+
+on our first day focus on getting your bearings
+
+- what to expect, whats expected of them, guidance, hold them by the hand
+
+- school work
+
+# Start the Project
+
+things very naturally become a habit, the day to day things,
+things that come up naturally
+
+- knowing where the code is
+- where are the dependencies
+- document everything that is a part of the daily work
+
+- go by steps
+
+for ex: " start by cloning the project by cloning the following command"
+
+always use a screen shot or code snippet for visual representation so readers are rest assured
+
+- once done, run the next command
+
+- once the command is finished, you should see something like this
+
+- CREATE DOCUMENTATION SPARINGLY, BARE BONE MINIMUM
+
+
+
+

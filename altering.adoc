@@ -1,0 +1,245 @@
+= Altering the File System
+:toc: left
+
+Now that you're able to navigate the filesystem and inspect files and directories, you're ready to make alterations to your file system with the following commands:
+
+* `*cp*` - copy files and directories
+* `*mv*` - move or rename files and directories
+* `*rm*` - remove files and directories
+* `*mkdir*` - make directories
+* `*rmdir*`
+
+By the end of this module, you'll  be able to answer the following questions:
+
+* What advantages does the command line serve over a GUI when making changes to the file system?
+* Wildcards
+
+== power and flexibility
+
+Some of the tasks performed by these commands are more easily done with a graphical file manager. 
+
+For example: you can drag and drop a file from one directory to another, cut and paste files, delete files, etc.
+
+Simple tasks are good with GUI but complicated good with CL.
+
+== Copying Files and Directories (cp)
+
+`*cp*` program copies files and directories
+
+simplest form it copies a single file, type
+
+```sh 
+$ cp file1 file2
+```
+NOTE: ... means that an iem can be repeated
+
+can also copy multiple files (and/or cirectories) to a different directory:
+
+|===
+| Command|Result
+
+|cp file1 file2
+|Copies the contents of file1 into file2. If file2 does not exist, it is created; otherwise, file2 is silently overwritten with the contents of file1.
+
+|cp -i file1 file2
+|Like above however, since the "-i" (interactive) option is specified, if file2 exists, the user is prompted before it is overwritten with the contents of file1.
+
+|cp file1 dir1
+|Copy the contents of file1 (into a file named file1) inside of directory dir1.
+
+|cp -R dir1 dir2
+|Copy the contents of the directory dir1. If directory dir2 does not exist, it is created. Otherwise, it creates a directory named dir1 within directory dir2.
+|===
+
+
+```sh
+$ cp file... directory
+```
+
+copy all HTML files from one diretory to another, but only copy files that did not exist in the destination directory 
+
+```sh
+$ cp - u *.html destination
+```
+
+
+
+== Wildcards 
+Shell feature that makes commands so powerful. Saves times by eaily specifying groups of filenames. Wildcards allow you to select filenames based on patterns of characters. 
+
+you can use wildcards with any command that sccepts filename arguments.
+
+|===
+|Wildcard|Meaning
+
+|*
+|Matches any characters
+
+|?
+|Matches any single character
+
+|[characters]
+|Matches any character that is a member of the set _characters_. The set of characters may also be expressed as _POSIX character class_ such as one of the following: 
+
+*[:alnum:]* Alphanumeric characters
+*[:alpha:]* Alphanumeric characters
+*[:digit:]* Numerals
+*[:upper:]* Uppercase alphabetic characters
+*[:lower:]* Lowercase alphabetic characters
+
+|[!_characters_]
+| Matches any character that is not a member of the set characters
+|===
+
+
+== How to use Wildcard
+
+With wildcards, it's possible to construct very sophisticated selection criteria for filenames.  Here are some examples of patterns and what they match
+
+|===
+| Pattern| Matches
+
+|*
+|All filenames
+
+|g*
+|All filenames that begin with the character "g"
+
+|b*.txt
+|All filenames that begin with the character "b" and end with the characters ".txt"
+
+|Data???
+|Any filename that begins with the characters "Data" followed by exactly 3 more characters
+
+|[abc]*
+|Any filename that begins with "a" or "b" or "c" followed by any other characters
+
+|[[:upper:]]*
+|Any filename that begins with an uppercase letter. This is an example of a character class.
+
+|BACKUP.[[:digit:]][[:digit:]]
+|Another example of character classes. This pattern matches any filename that begins with the characters "BACKUP." followed by exactly two numerals.
+
+
+| *[![:lower:]]
+|Any filename that does not end with a lowercase letter.
+|===
+
+
+== Moving and Renaming Files (mv)
+
+`*mv*` moves or renames files and directories depending on how it's used
+
+either: 
+a) moves one or more files to a different directory
+
+```sh
+$ mv filename1 filename2
+```
+
+b) will rename a file or directory
+
+```sh
+$ mv file... directory
+```
+
+|===
+|command | result
+
+|mv file1 file2
+| If file2 does not exist, then file1 is renamed file2. If file2 exists, its contents are silently replaced with the contents of file1.
+
+|mv -i file1 file2
+
+|Like above however, since the "-i" (interactive) option is specified, if file2 exists, the user is prompted before it is overwritten with the contents of file1.
+
+
+|mv file1 file2 file3 dir1
+
+|The files file1, file2, file3 are moved to directory dir1. If dir1 does not exist, mv will exit with an error.
+
+|mv dir1 dir2
+
+
+|If dir2 does not exist, then dir1 is renamed dir2. If dir2 exists, the directory dir1 is moved within directory dir2.
+|===
+
+== Removing Files (rm)
+
+*rm* removes (deletes) files and directories
+
+```sh
+$ rm file ...
+```
+it can also delete directories
+
+```sh
+$ rm -r directory...
+```
+
+|===
+| Command|Results
+
+|rm file1 file2
+|Delete file1 and file2.
+Delete file1 and file2.
+
+|rm -i file1 file2
+|Like above however, since the "-i" (interactive) option is specified, the user is prompted before each file is deleted.
+
+|rm -r dir1 dir2
+|Directories dir1 and dir2 are deleted along with all of their contents.
+|===
+
+[WARNING]
+====
+Can't undelete something after using `*rm*`
+
+can cause damage,especially with wildcawrd
+====
+
+TIP: When Using rm with wildcards, construct your command using *ls* instead. By doing this, you can see the effect of your wildcards before you delete files.
+
+
+== Making Directories (mkdir)
+
+The mkdir command is used to create directories. Type:
+
+```sh
+$ mkdir directory
+```
+
+|===
+| Command| Results
+|cp *.txt text_files
+|Copy all files in the current working directory with names ending with the characters ".txt" to an existing directory named text_files.
+
+|mv my_dir ../*.bak my_new_dir
+|Move the subdirectory my_dir and all the files ending in ".bak" in the current working directory's parent directory to an existing directory named my_new_dir.
+
+|rm *~
+|Delete all files in the current working directory that end with the character "~". Some applications create backup files using this naming scheme. Using this command will clean them out of a directory.
+|===
+
+
+== Troubleshooting: Common Errors
+
+# cp
+
+$ cp mydir mydir1
+cp: mydir is a directory (not copied).
+
+
+# rm
+
+
+* rm: mydir/ is a directory
+
+* rmdir: mydir: Directory not empty
+
+
+== Basic Questions:
+
+* How do I make new files? 
+* How do I delete files?
+* What kinds of chages can I make to existing files?
