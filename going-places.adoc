@@ -85,14 +85,14 @@ $ *cd my-dir0*
 
 *Answers:*
 
-. from `mydir` to root without forward slash:
+. From `mydir` to root without forward slash:
 +
 [source,bash]
 [subs=+quotes]
 ----
 $ *cd ../../..*
 ----
-. from root to `mydir-02`
+. From root to `mydir-02`
 +
 [source,bash]
 [subs=+quotes]
