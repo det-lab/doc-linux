@@ -5,7 +5,7 @@
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.8">
-<title>The Ultimate Guide to Using the Shell</title>
+<title>Begginer&#8217;s Guide to the Shell Terminal</title>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <style>
 /* Asciidoctor default stylesheet | MIT License | http://asciidoctor.org */
@@ -432,34 +432,22 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </head>
 <body class="article toc2 toc-left">
 <div id="header">
-<h1>The Ultimate Guide to Using the Shell</h1>
+<h1>Begginer&#8217;s Guide to the Shell Terminal</h1>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_what_is_the_shell">What is the Shell?</a>
-<ul class="sectlevel2">
-<li><a href="#_files_and_processes">Files and Processes</a></li>
-</ul>
-</li>
-<li><a href="#_running_a_shell_process_with_the_terminal">Running a shell process with the terminal</a></li>
-<li><a href="#_navigating_the_filesystem">Navigating the filesystem</a>
-<ul class="sectlevel2">
-<li><a href="#_where_am_i_listing_things">Where am I? (listing things)</a></li>
-<li><a href="#_moving_around_changing_directories">moving around (changing directories)</a></li>
-<li><a href="#_reading_things">reading things</a></li>
-<li><a href="#_searhing_for_things">searhing for things</a></li>
-</ul>
-</li>
-<li><a href="#_handling_files">Handling files</a>
-<ul class="sectlevel2">
-<li><a href="#_making_things">Making things</a></li>
-<li><a href="#_copying_things">copying things</a></li>
-<li><a href="#_moving_things">moving things</a></li>
-<li><a href="#_removing_things">removing things</a></li>
-<li><a href="#_permissions">permissions</a></li>
-</ul>
-</li>
+<li><a href="#_introduction_what_is_the_shell_and_what_is_the_terminal">Introduction: What is the shell? And what is the terminal?</a></li>
+<li><a href="#_navigate_listing_things_moving_around_and_wildcards">Navigate (listing things, moving around and wildcards)</a></li>
+<li><a href="#_making_files_and_directories">Making files and directories</a></li>
+<li><a href="#_moving_copying_and_deleting_filesdirectories">Moving, copying, and deleting files/directories</a></li>
+<li><a href="#_peaking_inside_files">Peaking inside files</a></li>
+<li><a href="#_searhing_for_things">Searhing for Things</a></li>
+<li><a href="#_permissions">Permissions</a></li>
+<li><a href="#_environemnt">Environemnt</a></li>
 <li><a href="#_handling_processes">Handling Processes</a></li>
+<li><a href="#_text_processing">Text Processing</a></li>
+<li><a href="#_miscellaneous">Miscellaneous</a></li>
+<li><a href="#_redirection">Redirection</a></li>
 </ul>
 </div>
 </div>
@@ -467,475 +455,531 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p><strong>GOAL: Learn how to manage files and processes with the shell.</strong></p>
-</div>
-<div class="paragraph">
-<p>This will be accomplished by performing the following tasks:</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>Running a shell process in the terminal</p>
-</li>
-<li>
-<p>Navigating the filesystem</p>
-</li>
-<li>
-<p>Handling Files</p>
-</li>
-<li>
-<p>Handling Processes</p>
-</li>
-</ol>
+<p>The main purpose of this documentation is to provide beginners with a basic foundation of how to use the shell terminal.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="_what_is_the_shell">What is the Shell?</h2>
+<h2 id="_introduction_what_is_the_shell_and_what_is_the_terminal">Introduction: What is the shell? And what is the terminal?</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Inspired by the original UNIX operating system, <strong>the trademark feature of all UNIX-like operating systems is the shell</strong>. Common Unix-like operating systems include macOS and any distribution of Linux. Check out this awesome video to learn more about the original UNIX shell:</p>
-</div>
-<div class="videoblock text-center">
-<div class="content">
-<iframe width="600" height="400" src="https://www.youtube.com/embed/tc4ROCJYbm0?rel=0" frameborder="0" allowfullscreen></iframe>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_files_and_processes">Files and Processes</h3>
-<div class="paragraph">
-<p>Everything in a Unix-like operating system is a <strong>file</strong>. A speical type of files called <strong>executable files</strong> become <strong>processes</strong>. Processes occur anytime we run a program by executing a an <strong>executable file</strong>.</p>
+<p>Read the introduction <a href="introduction.html">here</a>.</p>
 </div>
 <table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: run commands like a boss</caption>
 <colgroup>
 <col style="width: 50%;">
 <col style="width: 50%;">
 </colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Keyboard Shortcuts/Commands</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>EXECUTABLE files (become processes)</strong></p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><strong>NON EXECUTABLE files (rely on processes)</strong></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><kbd>tab</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Auto-complete (commands, file names)</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">type of file that runs a program when it&#8217;s opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts</p>
-<p class="tableblock">common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, <strong>commands</strong></p>
-<p class="tableblock">common file extensions: .APP .EXE .SRC .VB</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">type of file that relies on executable files to be of any use</p>
-<p class="tableblock">common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files</p>
-<p class="tableblock">common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$ history</code> or <kbd>&uarr;</kbd></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Recall command history</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>control</kbd>+<kbd>u</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear the command line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>$ clear</code> or <span class="keyseq"><kbd>control</kbd>+<kbd>L</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear the screen</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>control</kbd>+<kbd>c</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill a process/cancel input (begin a new command line)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><span class="keyseq"><kbd>control</kbd>+<kbd>z</kbd></span></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">stop a process</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_navigate_listing_things_moving_around_and_wildcards">Navigate (listing things, moving around and wildcards)</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The very first thing that you&#8217;re going to want to do after opening the terminal is figure out where you are and what you&#8217;re looking at.
+Click h<a href="listing-things.html">here</a> to learn how to navigate within the terminal.</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: list things and move around like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>pwd</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print current working directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all the files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls -l</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all the files, permissions and last edit time</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls -1</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List all the files, one per line</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls -a</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Include hidden files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ls -F</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">List file types</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cd <em>/my/desired/location</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">changes directories to desired location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cd</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">go to your home directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cd ~</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">go to your home directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cd ..</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">go up one directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cd ../..</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">go up two directories</p></td>
+</tr>
+</tbody>
+</table>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<div class="title">📝</div>
+</td>
+<td class="content">
+Typing <code>cd</code> with no argument always returns you to your home directory on Unix-like systems. This is super helpful if you&#8217;re lost in the filesystem.<br>
+In Windows, you&#8217;ll want to use <code>cd ~</code> instead.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_making_files_and_directories">Making files and directories</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: make files and directories like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mkdir <em>directory</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mkdir-p <em>directory1/directory2</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a directory (directory1) and a subdirectory (directory2)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>touch <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a text file called file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>nano <em>file.txt</em></code> or <code>vim <em>file.txt</em></code> or <code>emacs <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make and/or edit a text file called file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_moving_copying_and_deleting_filesdirectories">Moving, copying, and deleting files/directories</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: make copies of files and directories like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>mv <em>directory1/file /directory2/</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">move a file from one directory into another directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cp file1 file2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">copy file1 and call it file2</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cp <em>file.txt /directory/</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Copy a file to a location</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cp -r <em>directory1 /directory2/</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Make a copy a directory into another directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm <em>file</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rmdir <em>directory</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove an (empty) directory</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>rm -r <em>directory</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">remove a directory and everything within it</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_peaking_inside_files">Peaking inside files</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: Read through files like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cat <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print a file to the terminal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>more <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scroll forward through a file without hiding the rest of the terminal.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>less <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Scroll through a file (going backwards allowed). Also hides the rest of the terminal.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>head -n 7 <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print the first 7 lines of a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>tail -n 7 <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Print the last 7 lines of a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wc <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Word count</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wc -w <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Figure out how many words</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>wc -l <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Figure out how many lines</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>diff <em>file.txt</em> <em>file2.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Compare two files line by line.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_searhing_for_things">Searhing for Things</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: search for things like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>grep</code> ("global regular expression print")</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Filters for things that you print&#8201;&#8212;&#8201;searches within files</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>find <em>file.txt</em></code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will search for a specified file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_permissions">Permissions</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: change access rights like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chmod</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change access rights</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chown</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change owner of file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">chgrp</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">change group member of file</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_environemnt">Environemnt</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: change access rights like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">echo $PATH or echo ${PATH}</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">print information to terminal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">export MYNAME=<em>yourname</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sets variable $ {MYNAME}</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">env</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">prints out entire environment</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_handling_processes">Handling Processes</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: handle processes like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sleep 1000 &amp;</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">shell sleeps for 1000 seconds in background due to &amp;</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>jobs</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Display status of current processes in shell</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bg</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume a stopped process in the background so you can enter more commands</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>fg</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Resume a stopped process by running in the foreground (can&#8217;t enter more commands this way)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>kill</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Kill a running or stopped process</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>stop</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Stop a running process</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_text_processing">Text Processing</h2>
+<div class="sectionbody">
+
+</div>
+</div>
+<div class="sect1">
+<h2 id="_miscellaneous">Miscellaneous</h2>
+<div class="sectionbody">
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: do miscellaneous like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>echo "<em>Hello World</em>"</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Prints hello world to the terminal</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sed</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Replaces things for you</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>awk</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Will let you print specific fields of data (columns)</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>bc</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Doing math is easier in bash scripts if you pipe it through bc</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>cut</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Tool for chopping up strings</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>uniq</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Gets rid of duplicate things</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>sort</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>paste</code></p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>clear</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Clear screen</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_redirection">Redirection</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>frame=all]</p>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<caption class="title">Quick Reference: do miscellaneous like a boss</caption>
+<colgroup>
+<col style="width: 50%;">
+<col style="width: 50%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Command</th>
+<th class="tableblock halign-left valign-top">Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>command</em> &gt; <em>file</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redirect standard output to a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>command</em> &gt;&gt; <em>file</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">append standard output to a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>command</em> &lt; <em>file</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">redirect standard input from a file</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>command1</em></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><em>command2</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">pipe the output of command1 to the input of command2</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">cat <em>file1 file2</em> &gt; <em>file0</em></p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">concatenate file1 and file2 to file-</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">sort data</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">who</p></td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
 </div>
-<div class="sect1">
-<h2 id="_running_a_shell_process_with_the_terminal">Running a shell process with the terminal</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>GOAL: Learn how to use the terminal to run commands in the shell.</strong></p>
-</div>
-<div class="paragraph">
-<p>We run shell commands to tell the computer what to do. But to write out the commands, we need to use a command-line interface called the terminal.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Exercises, resources and troubleshooting</strong>: terminal, shell, and command-line basics</p>
-<div class="paragraph">
-<p>Click <a href="running-a-shell-process-terminal.html">here</a>.</p>
-</div>
-</li>
-</ul>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Quick Reference:</strong> run commands like a boss</p>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p><kbd>tab</kbd>: auto complete (commands, file names)</p>
-</li>
-<li>
-<p><code>$ history</code> or (up arrow key): reccall command history</p>
-</li>
-<li>
-<p><span class="keyseq"><kbd>control</kbd>+<kbd>u</kbd></span>: clear the command line</p>
-</li>
-<li>
-<p><code>$ clear</code> or <span class="keyseq"><kbd>control</kbd>+<kbd>L</kbd></span> clear the screen</p>
-</li>
-<li>
-<p><span class="keyseq"><kbd>control</kbd>+<kbd>c</kbd></span>: kill a process/cancel input (begin a new command line)</p>
-</li>
-<li>
-<p><span class="keyseq"><kbd>control</kbd>+<kbd>z</kbd></span>: stop a process</p>
-</li>
-</ol>
-</div>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_navigating_the_filesystem">Navigating the filesystem</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>GOAL: Learn how to navigate the filesystem using the shell.</strong></p>
-</div>
-<div class="paragraph">
-<p>Everything stored on a computer&#8217;s hard drive is a file (even DIRECTORIES [a.k.a. folders]). In Unix-like OSs, <strong>filesystems</strong> have a hierarchical structure analogous to an upside down tree. All files and directories within the filesystem,have have a direct path that leads back to the <strong>root</strong> <strong>directory</strong> (written as a slash /). Subtle differences exist depending on the OS, but they all have the same general structure.</p>
-</div>
-<div class="openblock float-group">
-<div class="content">
-<div class="imageblock left">
-<div class="content">
-<img src="/Users/eljefe/Det-Lab-Doc/unix-tut/image-macOStree.png" alt="120" width="180">
-</div>
-<div class="title">Figure 1. macOS filesystem architecture</div>
-</div>
-<div class="imageblock left">
-<div class="content">
-<img src="/Users/eljefe/Det-Lab-Doc/unix-tut/image-linuxOStree.png" alt="120" width="180">
-</div>
-<div class="title">Figure 2. Linux distribution architecture</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_where_am_i_listing_things">Where am I? (listing things)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Exercises, troubleshooting and resources</strong>:</p>
-<div class="paragraph">
-<p>Click <a href="listing-things.html">here</a>.</p>
-</div>
-</li>
-<li>
-<p><strong>Quick Reference</strong>: List things like a boss.</p>
-</li>
-<li>
-<p><code>pwd</code>: print current working directory</p>
-</li>
-<li>
-<p><code>ls</code>: list all the files</p>
-</li>
-<li>
-<p><code>ls -l</code>: list all the files, permissions and last edit time</p>
-</li>
-<li>
-<p><code>ls -1</code>: list all the files, one per line</p>
-</li>
-<li>
-<p><code>ls -a</code>: include hiddent files</p>
-</li>
-<li>
-<p><code>ls -F</code>: list file types</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_moving_around_changing_directories">moving around (changing directories)</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><strong>Exercises, troubleshooting, and resources</strong>:</p>
-<div class="paragraph">
-<p>Click <a href="going-places.html">here</a>.</p>
-</div>
-</li>
-<li>
-<p><strong>Quick Reference</strong>: Move around like a boss.</p>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">📝</div>
-</td>
-<td class="content">
-typing <code>cd</code> with no argument always returns you to your home directory. This is super helpful if you&#8217;re lost in the filesystem.
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p><code>cd <em>/my/desired/location</em></code>: changes directories to desired location</p>
-</li>
-<li>
-<p><code>cd</code>: go to your home directory</p>
-</li>
-<li>
-<p><code>cd ~</code>: go to your home directory</p>
-</li>
-<li>
-<p><code>cd ..</code>: go up one directory</p>
-</li>
-<li>
-<p><code>cd ../..</code>: go up two directories</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_reading_things">reading things</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cat <em>file.txt</em></code> print a file to the terminal</p>
-</li>
-<li>
-<p><code>more <em>file.txt</em></code>: scroll through a file</p>
-</li>
-<li>
-<p><code>less <em>file.txt</em></code>: scrosll through a file (going backwords allowed)</p>
-</li>
-<li>
-<p><code>head -n 7</code>: print the first 7 lines of a file</p>
-</li>
-<li>
-<p><code>tail -n 7</code>: print the last 7 lines of a file</p>
-</li>
-<li>
-<p><code>wc <em>file.txt</em></code>: word cound</p>
-</li>
-<li>
-<p><code>wc -w <em>file.txt</em></code>: figure out how many words</p>
-</li>
-<li>
-<p><code>wc -l <em>file.txt</em></code>: figure out how many lines</p>
-</li>
-<li>
-<p><code>diff</code></p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_searhing_for_things">searhing for things</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><code>grep</code> (don&#8217;t ask why it&#8217;s called grep): filters for things that you print</p>
-</li>
-<li>
-<p><code>find</code>: will search</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_handling_files">Handling files</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>GOAL: Make changes to the filesystem using the shell.</strong></p>
-</div>
-<div class="sect2">
-<h3 id="_making_things">Making things</h3>
-<div class="admonitionblock important">
-<table>
-<tr>
-<td class="icon">
-<div class="title">❗️</div>
-</td>
-<td class="content">
-don&#8217;t use special characters or spaces&#8230;&#8203; EVER
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">📝</div>
-</td>
-<td class="content">
-acceptable characters: dash - underscore _ or forward slash _
-</td>
-</tr>
-</table>
-</div>
-<div class="sect3">
-<h4 id="_making_files">making files</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>touch <em>file.txt</em></code>: make a text file called file</p>
-</li>
-<li>
-<p><code>nano <em>file.txt</em></code> or <code>vim <em>file.txt</em></code> or <code>emacs <em>file.txt</em></code>: make and/or edit a text file called file</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect3">
-<h4 id="_making_directories">making directories</h4>
-<div class="ulist">
-<ul>
-<li>
-<p><code>mkdir <em>directory</em></code>: make a directory</p>
-</li>
-<li>
-<p><code>mkdir-p <em>directory1/directory2</em></code>: make a directory (directory1) and a subdirectory (directory2)</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_copying_things">copying things</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><code>cp <em>file.txt /directory/</em></code>: copy a file to a location</p>
-</li>
-<li>
-<p><code>cp -r <em>directory1 /directory2/</em></code>: make a copy a directory into another directory</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_moving_things">moving things</h3>
-<div class="ulist">
-<ul>
-<li>
-<p><code>mv <em>directory1/file /directory2/</em></code>: move a file from one directory into another directory</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_removing_things">removing things</h3>
-<div class="admonitionblock caution">
-<table>
-<tr>
-<td class="icon">
-<div class="title">⚠️</div>
-</td>
-<td class="content">
-proceed with care - you can really screw things up
-</td>
-</tr>
-</table>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<div class="title">📝</div>
-</td>
-<td class="content">
-files are backed up, but let&#8217;s not go there
-</td>
-</tr>
-</table>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>rm <em>file</em></code>: remove a file</p>
-</li>
-<li>
-<p><code>rmdir <em>directory</em></code>: remove an (empty) directory</p>
-</li>
-<li>
-<p><code>rm -r <em>directory</em></code>: remove a directory and everything within it</p>
-</li>
-</ul>
-</div>
-</div>
-<div class="sect2">
-<h3 id="_permissions">permissions</h3>
-<div class="ulist">
-<ul>
-<li>
-<p>changing groups</p>
-</li>
-<li>
-<p>changing permissions</p>
-</li>
-<li>
-<p>adding sticky bits</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="_handling_processes">Handling Processes</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p><strong>GOAL: Manage processes using the shell.</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>jobs</code>: display status of current processes in shell</p>
-</li>
-<li>
-<p><code>bg</code>:  resume a stopped process in the background so you can enter more commands</p>
-</li>
-<li>
-<p><code>fg</code>: resume a stopped process by running in the foreground (can&#8217;t enter more commands this way)</p>
-</li>
-<li>
-<p><code>kill</code>: kill a running or stopped process</p>
-</li>
-<li>
-<p><code>stop</code>: stop a running process</p>
-</li>
-</ul>
-</div>
-<hr>
-<div class="paragraph">
-<p><strong>Miscellaneous</strong></p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>echo "<em>Hello World</em>"</code>: prints hello world to the terminal</p>
-</li>
-<li>
-<p><code>sed</code>: replaces things for you</p>
-</li>
-<li>
-<p><code>awk</code>: will let you print specific fields of data (columns)</p>
-</li>
-<li>
-<p><code>bc</code>: doing math is easier in bash scripts if you pipe it through bc</p>
-</li>
-<li>
-<p><code>cut</code>: tool for chopping up strings</p>
-</li>
-<li>
-<p><code>uniq</code>: gets rid of duplicate things</p>
-</li>
-<li>
-<p><code>sort</code></p>
-</li>
-<li>
-<p><code>paste</code></p>
-</li>
-<li>
-<p><code>clear</code>: clear screen</p>
-</li>
-</ul>
-</div>
-</div>
-</div>
-</div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2019-06-10 17:20:43 -0600
+Last updated 2019-08-14 14:20:41 -0600
 </div>
 </div>
 </body>
