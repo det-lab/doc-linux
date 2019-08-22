@@ -1,16 +1,5 @@
-:tip-caption: 💡
-:note-caption: 📝
-:caution-caption: ⚠️
-:warning-caption: 🔥
-:important-caption: ❗️
+== Running a Shell Process in the Terminal
 
-= Running a Shell Process in the Terminal
-:toc: \\left
-:experimental:
-:commandkey: &#8984;
-:optionkey: &#8997;
-:shiftkey: &#x21e7;
-:imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
 
 
 == What's the difference between the terminal and the shell?

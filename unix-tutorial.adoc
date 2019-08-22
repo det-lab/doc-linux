@@ -5,8 +5,8 @@
 :important-caption: ❗️
 
 
-= The Ultimate Guide to Using the Shell
-:toc: \\left\\
+= Begginer's Guide to the Shell Terminal
+:toc: left
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -14,60 +14,27 @@
 :ext-relative: adoc
 :imagesdir: ./images
 
+The purpose of this guide is to provide you with a basic understanding of the shell whilecommands
 
 
-*GOAL: Learn how to manage files and processes with the shell.*
+== Introduction: What is the shell? And what is the terminal?
 
-This will be accomplished by performing the following tasks:
+Read the introduction xref:introduction.adoc[here].
 
-. Running a shell process in the terminal
-. Navigating the filesystem
-. Handling Files
-. Handling Processes
+//// 
+ combined parts from original
 
-== Prerequisites
-
-To perform the following exercises, download this https://github.com/det-lab/linux-practice-repo[repository] to your home directory. 
-
-
-
-== What is the Shell?
-
-Inspired by the original UNIX operating system, *the trademark feature of all UNIX-like operating systems is the shell*. Common Unix-like operating systems include macOS and any distribution of Linux. Check out this awesome video to learn more about the original UNIX shell: 
-
-video::tc4ROCJYbm0[youtube, width=600, height=400, align=center]
-
-
-=== Files and Processes
-
-Everything in a Unix-like operating system is a *file*. A speical type of files called *executable files* become *processes*. Processes occur anytime we run a program by executing an *executable file*. 
-
-
-|===
-|*EXECUTABLE files (become processes)*|*NON EXECUTABLE files (rely on processes)*
-|
-
-Type of file that runs a program when it's opened by executing a set of instructions (a.k.a. do stuff like listen to songs, watch videos or view images) based on compiled programs/scripts
-
-Common examples: Spotify, Web Browsers (Safari, Firefox, Chrome), Microsoft Word/PowerPoint/Excel, *commands*
-
-Common file extensions: .APP .EXE .SRC .VB|
-
-Type of file that relies on executable files to be of any use 
-
-Common examples: audio files, compressed files, data files, system files, Word/PowerPoint/Excel files
-
-Common file extensions: .mp3, .mpg, .jpg, .png, .doc, .ppt, .xsl, .tar, .log )
-|===
-
-== Running a shell process with the terminal
+Running a shell process with the terminal
 *GOAL: Learn how to use the terminal to run commands in the shell.*
 
 We run shell commands to tell the computer what to do. But to write out the commands, we need to use a command-line interface called the terminal. 
 
 * *Exercises, resources and troubleshooting*: terminal, shell, and command-line basics
 +
-xref:running-a-shell-process-terminal.adoc[here]. 
+
+////
+
+// xref:running-a-shell-process-terminal.adoc[here]. 
 
 ////
  What's the difference between the terminal and the shell?
@@ -77,17 +44,25 @@ xref:running-a-shell-process-terminal.adoc[here].
 * How do I run commands?
 ////
 
+[frame=all]
+[caption=]
+.Quick Reference: run commands like a boss
+|===
+| Keyboard Shortcuts/Commands | Meaning
 
-* *Quick Reference:* run commands like a boss
-+
-. kbd:[tab]: Auto-complete (commands, file names)
-. `$ history` or kbd:[&uarr;]: Recall command history
-. kbd:[ control + u]: Clear the command line
-. `$ clear` or kbd:[ control + L]  Clear the screen
-. kbd:[control + c]: Kill a process/cancel input (begin a new command line)
-. kbd:[ control + z]: stop a process
+| kbd:[tab]| Auto-complete (commands, file names) 
+|`$ history` or kbd:[&uarr;] | Recall command history 
 
-== Navigating the filesystem
+| kbd:[ control + u] | Clear the command line 
+| `$ clear` or kbd:[ control + L] | Clear the screen 
+
+| kbd:[control + c] | Kill a process/cancel input (begin a new command line) 
+| kbd:[ control + z] | stop a process 
+|===
+
+////
+== Filesystem
+
 
 *GOAL: Learn how to navigate the filesystem using the shell.* 
 
@@ -104,124 +79,324 @@ image::image-macOStree.png[120,180]
 image::image-linuxOStree.png[120,180]
 --
 
+////
+
+== Navigate (listing things, moving around and wildcards)
+
+The very first thing that you're going to want to do after opening the terminal is figure out where you are and what you're looking at. 
+Click hxref:listing-things.adoc[here] to learn how to navigate within the terminal. 
 
 
-=== Where am I? (Listing Things)
+Commands: pwd, ls, cd
 
-* *Exercises, troubleshooting and resources*:
-+
-Click xref:listing-things.adoc[here].
+Concepts: command prompt, current working directory, absolute vs relative paths, listing files and directories, using flags and options, the directories . and ..
 
-* *Quick Reference*: List things like a boss.
+[frame=all]
+[caption=]
+.Quick Reference: list things and move around like a boss
+|===
+| Command | Meaning 
 
-* `pwd`: Print current working directory
-* `ls`: List all the files
-* `ls -l`: List all the files, permissions and last edit time
-* `ls -1`: List all the files, one per line
-* `ls -a`: Include hidden files
-* `ls -F`: List file types
+|`pwd`
+|Print current working directory
 
-=== Moving Around (Changing Directories)
-* *Exercises, troubleshooting, and resources*:
-+
-Click xref:going-places.adoc[here].
+|`ls`
+| List all the files
 
-* *Quick Reference*: Move around like a boss.
-+
+| `ls -l`
+| List all the files, permissions and last edit time
+
+| `ls -1`
+| List all the files, one per line
+
+| `ls -a`
+| Include hidden files
+
+| `ls -F`
+| List file types
+
+|`cd _/my/desired/location_`
+| changes directories to desired location
+
+| `cd`
+| go to your home directory
+
+|`cd ~`
+| go to your home directory
+
+| `cd ..`
+| go up one directory
+
+| `cd ../..`
+| go up two directories
+|===
+
 NOTE: Typing `cd` with no argument always returns you to your home directory on Unix-like systems. This is super helpful if you're lost in the filesystem. +
 In Windows, you'll want to use `cd ~` instead.
-+
-* `cd _/my/desired/location_`: changes directories to desired location
-* `cd`: go to your home directory
-* `cd ~`: go to your home directory
-* `cd ..`: go up one directory
-* `cd ../..`: go up two directories
-
-=== Reading Things
-
-* `cat _file.txt_` Print a file to the terminal
-* `more _file.txt_`: Scroll forward through a file without hiding the rest of the terminal.
-* `less _file.txt_`: Scroll through a file (going backwards allowed). Also hides the rest of the terminal.
-* `head -n 7 _file.txt_`: Print the first 7 lines of a file
-* `tail -n 7 _file.txt_`: Print the last 7 lines of a file
-* `wc _file.txt_`: Word count
-* `wc -w _file.txt_`: Figure out how many words
-* `wc -l _file.txt_`: Figure out how many lines
-* `diff _file.txt_ _file2.txt_`: Compare two files line by line.
 
 
-=== Searhing for Things
 
-* `grep` ("global regular expression print"): Filters for things that you print -- searches within files 
-* `find _file.txt_`: Will search for a specified file
 
-== Handling files
-
-*GOAL: Make changes to the filesystem using the shell.*
-
-=== Making things
-
+== Making files and directories
+////
 IMPORTANT: Don't use special characters or spaces... EVER. This results in a risk of your filename interfering with commands or being read improperly by programs. If you do somehow end up with a filename with special characters or spaces, put it in quotes or single quotes when referencing it. (Example: 'file name.txt'.) This is not a foolproof solution, but may help.
 
 NOTE: acceptable characters: dash - underscore _ or forward slash /
+////
 
-==== Making Files
+[frame=all]
+[caption=]
+.Quick Reference: make files and directories like a boss
+|===
+|Command | Meaning
 
-* `touch _file.txt_`: Make a text file called file
-* `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`: Make and/or edit a text file called file
+|`mkdir _directory_`
+| Make a directory 
 
-==== Making Directories
-
-* `mkdir _directory_`: Make a directory 
-* `mkdir-p _directory1/directory2_`: Make a directory (directory1) and a subdirectory (directory2)
-
-=== Copying Things
-
-* `cp _file.txt /directory/_`: Copy a file to a location
-* `cp -r _directory1 /directory2/_`: Make a copy a directory into another directory
-
-=== Moving Things
-
-* `mv _directory1/file /directory2/_`: move a file from one directory into another directory
+|`mkdir-p _directory1/directory2_`
+| Make a directory (directory1) and a subdirectory (directory2)
 
 
-=== removing things
+|`touch _file.txt_`
+| Make a text file called file
 
-CAUTION: Proceed with care - you can really screw things up
+| `nano _file.txt_` or `vim _file.txt_` or `emacs _file.txt_`
+| Make and/or edit a text file called file
+|===
+
+== Moving, copying, and deleting files/directories
+
+[frame=all]
+[caption=]
+.Quick Reference: make copies of files and directories like a boss
+|===
+|Command | Meaning
+
+|`mv _directory1/file /directory2/_`
+| move a file from one directory into another directory
+
+|cp file1 file2
+|copy file1 and call it file2
+
+|`cp _file.txt /directory/_`
+| Copy a file to a location
+
+|`cp -r _directory1 /directory2/_`
+| Make a copy a directory into another directory
+
+| `rm _file_`
+| remove a file
+
+|`rmdir _directory_`
+| remove an (empty) directory
+
+| `rm -r _directory_`
+| remove a directory and everything within it
+|===
+
+
+////
+ CAUTION: Proceed with care - you can really screw things up
 
 NOTE: Files are backed up, but let's not go there
 
-* `rm _file_`: remove a file
-* `rmdir _directory_`: remove an (empty) directory
-* `rm -r _directory_`: remove a directory and everything within it
+////
 
-=== Permissions
+== Peaking inside files
 
+[frame=all]
+[caption=]
+.Quick Reference: Read through files like a boss
+|===
+|Command | Meaning
+
+|`cat _file.txt_`
+| Print a file to the terminal
+
+| `more _file.txt_`
+| Scroll forward through a file without hiding the rest of the terminal.
+
+| `less _file.txt_`
+| Scroll through a file (going backwards allowed). Also hides the rest of the terminal.
+
+| `head -n 7 _file.txt_`
+| Print the first 7 lines of a file
+
+| `tail -n 7 _file.txt_`
+| Print the last 7 lines of a file
+
+| `wc _file.txt_`
+| Word count
+
+| `wc -w _file.txt_`
+| Figure out how many words
+
+| `wc -l _file.txt_`
+| Figure out how many lines
+
+| `diff _file.txt_ _file2.txt_`
+| Compare two files line by line.
+|===
+
+
+== Searhing for Things
+
+[frame=all]
+[caption=]
+.Quick Reference: search for things like a boss
+|===
+|Command | Meaning
+
+| `grep` ("global regular expression print")
+| Filters for things that you print -- searches within files 
+
+| `find _file.txt_`
+| Will search for a specified file
+|===
+
+== Permissions
+
+////
 * changing groups
 * changing permissions
 * adding sticky bits
+////
+
+[frame=all]
+[caption=]
+.Quick Reference: change access rights like a boss
+|===
+|Command | Meaning
+
+| chmod
+| change access rights
+
+| chown
+| change owner of file
+
+| chgrp
+| change group member of file
+|===
+
+
+== Environemnt
+
+[frame=all]
+[caption=]
+.Quick Reference: change access rights like a boss
+|===
+|Command | Meaning
+
+| echo $PATH or echo ${PATH}
+| print information to terminal
+
+| export MYNAME=_yourname_
+| sets variable $ {MYNAME}
+
+| env
+|prints out entire environment
+|===
 
 
 == Handling Processes
 
+//// 
 *GOAL: Manage processes using the shell.*
+////
 
-* `jobs`: Display status of current processes in shell
-* `bg`:  Resume a stopped process in the background so you can enter more commands
-* `fg`: Resume a stopped process by running in the foreground (can't enter more commands this way)
-* `kill`: Kill a running or stopped process
-* `stop`: Stop a running process
+[frame=all]
+[caption=]
+.Quick Reference: handle processes like a boss
+|===
+|Command | Meaning
+
+| sleep 1000 &
+| shell sleeps for 1000 seconds in background due to &
+
+| `jobs`
+|Display status of current processes in shell
+
+|`bg`
+|Resume a stopped process in the background so you can enter more commands
+
+|  `fg`
+| Resume a stopped process by running in the foreground (can't enter more commands this way)
+
+|`kill`
+| Kill a running or stopped process
+
+|`stop`
+|Stop a running process
+|===
 
 
----
-*Miscellaneous* 
+== Text Processing
 
-* `echo "_Hello World_"`: Prints hello world to the terminal
-* `sed`: Replaces things for you
-* `awk`: Will let you print specific fields of data (columns)
-* `bc`: Doing math is easier in bash scripts if you pipe it through bc
-* `cut`: Tool for chopping up strings
-* `uniq`: Gets rid of duplicate things
-* `sort`
-* `paste`
-* `clear`: Clear screen
+
+== Miscellaneous
+
+[frame=all]
+[caption=]
+.Quick Reference: do miscellaneous like a boss
+|===
+|Command | Meaning
+
+|`echo "_Hello World_"` 
+|Prints hello world to the terminal
+
+| `sed`
+| Replaces things for you
+
+| `awk`
+| Will let you print specific fields of data (columns)
+
+| `bc`
+| Doing math is easier in bash scripts if you pipe it through bc
+
+| `cut`
+| Tool for chopping up strings
+
+| `uniq`
+| Gets rid of duplicate things
+
+| `sort`
+|
+
+| `paste`
+|
+
+| `clear`
+| Clear screen
+|===
+
+== Redirection
+
+
+frame=all]
+[caption=]
+.Quick Reference: do miscellaneous like a boss
+|===
+|Command | Meaning
+
+| _command_ > _file_
+| redirect standard output to a file
+
+| _command_ >> _file_
+| append standard output to a file
+
+| _command_ < _file_ 
+| redirect standard input from a file
+
+| _command1_ | _command2_ 
+|pipe the output of command1 to the input of command2
+
+| cat _file1 file2_ > _file0_
+| concatenate file1 and file2 to file-
+
+| sort
+| sort data
+
+| who 
+| list users currently logged in
+
+

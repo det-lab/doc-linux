@@ -1,11 +1,5 @@
-:tip-caption: 💡
-:note-caption: 📝
-:caution-caption: ⚠️
-:warning-caption: 🔥
-:important-caption: ❗️
-
-= Where am I? (listing things)
-:toc: \\left\\
+= Navigating the file system
+:toc: left
 :experimental:
 :commandkey: &#8984;
 :optionkey: &#8997;
@@ -13,34 +7,62 @@
 :imagesdir: /Users/eljefe/Det-Lab-Doc/unix-tut
 
 
-== Commands and Concepts 
-
-Commands: pwd, ls
-
-Concepts: current working directory, absolute vs relative paths, listing files and directories, using flags and options
 
 
-== Exercise 1: Detemermine your location
+=== listing files
 
-. *pwd* prints your current working directory. Enter `*pwd*` in the command-line and hit the return key to view the path of your home directory:
-+
-[source,bash]
+`*ls*`(list storage) allows you to view a directory's content. While in your home directory, type 
+
+```sh
+$ ls
+```
+
+=== Current directory (.) and parent directory (..)
+
+
+As you can see, there are two directories called (*.*) and (*..*).
+
+(*.*) means the current directory, so typing
+
+```sh
+$ ls .
+```
+
+has the same effect as runing *`ls`* by itself. 
+
+However, by adding the parent directory (*..*) allows us to peak  inside the directory that contains our home directory. 
+
+```sh
+$ ls ..
+```
+
+=== Unix-like filesystem
+
+To get a better idea of what we're dealing with, take a look at the image below. It's called a tree (more like an upside down tree), and it represents the basic structure of all Unix-like filesystems. 
+
+// insert image
+
+All files and directories are contained withing the root directory, represented by a forward slash (/). The one that we're most inerested in is the home directory. That's where most of the files you'll use are stored. 
+
+
+
+=== pwd (print working directory)
+
+To find out your exact location in the filesystem, type 
+
+[source,sh]
 [subs=+quotes]
 ----
 $ *pwd*
 ----
-+
-. As an example, my input (command) and output (path) looks like this:
-+
+to obtain the path of your current working directory. Beginning with the root directory (*/*), below is the path of my home directory. 
+
 [source,sh]
 [subs=+quotes]
 ----
 Dylans-Macbook-Pro:~ eljefe$ *pwd*
 /Users/eljefe
 ----
-+
-. Where `/Users/eljefe` is the path of my home directory.  
-+
 [NOTE] 
 ====
 The path of your home directory depends on your username and your operating system. But generally, it should like this: 
@@ -49,20 +71,68 @@ The path of your home directory depends on your username and your operating syst
 * Linux-based OS: `/home/_username_`
 * Windows: `C:\Users{backslash}__username__`
 ====
+=== Absolute vs. relative paths
 
-== Exercise 2: Listing files and directories 
+In the example above, pwd printed the absolute path of the current working directory. The path is called absolute because it can be accessed from anywhere within the filesystem. 
 
-. *ls* lists the contents of your current working directory directory. In your home directory, run `*ls*` and `*ls -F*:
+On the other hand, a relative path can only be accessed from the current working directory. With the following examples, this will make more sense. 
+
+=== cd (change directories)
+
+cd allows you to change directories. You can move to the root (*/*) directory by using *..* (called the parent directory, it moves you one level up) - type the following command twice and observe your promopt each time
+
+[source,sh]
+[subs=+quotes]
+----
+$ cd ..
+----
+
+Your prompt should now reflect your new working directory as root (*/*).
+
+You can also use the following command to achieve the same result
+
+[source,sh]
+[subs=+quotes]
+----
+$ cd ../..
+----
+
+To reutrn to your home directory simply type
+
+[source,sh]
+[subs=+quotes]
+----
+$ *cd *
+----
+
+You can also return to specify the home directory in your path by typing
+
+[source,sh]
+[subs=+quotes]
+----
+$ cd ~
+----
+
+== Exercise 1: Adding options to commands
+
+. Change directories from home to the directory *mydir*. 
 +
-NOTE: the minus sign (-) is called a flag. Flags are used to add options. Options alter the output of a command.  
+[source,sh]
+[subs=+quotes]
+----
+$ cd mydir/
+----
++
+. List the contents of mydir, first with `*ls*` then with `*ls -F*. The minus sign (-) is called a flag. Flags are used to add options. Options alter the output of a command.  
 +
 [source,sh]
 [subs=+quotes]
 ----
 $ *ls*
-mydir
+my-dir01	my-dir02	quotes1
 $ *ls -F*
-mydir/
+my-dir01/	my-dir02/	quotes1
+
 ----
 +
 The output is different the second time. The files that contain a slash (*/*) at the end of their name are directories.
@@ -75,12 +145,6 @@ The output is different the second time. The files that contain a slash (*/*) at
 $ *ls -F mydir*
 my-dir01/        my-dir02/
 ----
-+
-. There are two directories contained within `mydir/`:
-..  `my-dir01/` and 
-.. `mydir02/`. 
-+
-. Let's inspect both of them:
 +
 [TIP]
 .Features of the Shell
